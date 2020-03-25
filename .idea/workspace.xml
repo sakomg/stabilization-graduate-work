@@ -23,6 +23,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZWGy3gnUZ77o6g9EhSROujUOVq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -94,25 +95,29 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1584973998021" />
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom" timestamp="1584973710935">
+    <state width="1557" height="144" key="GridCell.Tab.0.bottom" timestamp="1585158148121">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1584973710935" />
-    <state width="1557" height="120" key="GridCell.Tab.0.center" timestamp="1584973710934">
+    <state width="1557" height="144" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585158148121" />
+    <state width="1557" height="144" key="GridCell.Tab.0.center" timestamp="1585158148121">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
-    <state width="1557" height="120" key="GridCell.Tab.0.left" timestamp="1584973710934">
+    <state width="1557" height="144" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1585158148121" />
+    <state width="1557" height="144" key="GridCell.Tab.0.left" timestamp="1585158148121">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
-    <state width="1557" height="120" key="GridCell.Tab.0.right" timestamp="1584973710934">
+    <state width="1557" height="144" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1585158148121" />
+    <state width="1557" height="144" key="GridCell.Tab.0.right" timestamp="1585158148121">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
+    <state width="1557" height="144" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1585158148121" />
     <state x="318" y="51" key="SettingsEditor" timestamp="1584974061510">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="318" y="51" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584974061510" />
+    <state x="508" y="64" key="refactoring.ChangeSignatureDialog" timestamp="1585137657426">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="508" y="64" key="refactoring.ChangeSignatureDialog/0.0.1600.860@0.0.1600.860" timestamp="1585137657426" />
   </component>
 </project>
