@@ -5,15 +5,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<<<<<<< HEAD
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
-=======
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
->>>>>>> cee8bf217c2510cf9577285038279cf2737b6fb4
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
     <children>
         <Button fx:id="changesButton" layoutX="203.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Apply" />
-        <Label layoutX="21.0" layoutY="35.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
-        <TextField fx:id="angleInput" cache="true" layoutX="27.0" layoutY="55.0" prefHeight="25.0" prefWidth="169.0" promptText="Input" />
+        <Label layoutX="20.0" layoutY="35.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
+        <TextField fx:id="angleInput" cache="true" layoutX="20.0" layoutY="55.0" prefHeight="25.0" prefWidth="172.0" promptText="Input" />
         <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="700.0" style="-fx-background-color: mediumslateblue;">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
@@ -53,28 +49,18 @@
                 </Menu>
             </menus>
         </MenuBar>
-<<<<<<< HEAD
-        <TextArea fx:id="dataComPort" layoutX="21.0" layoutY="122.0" prefHeight="270.0" prefWidth="254.0" />
-=======
-        <TextArea fx:id="dataComPort" layoutX="27.0" layoutY="165.0" prefHeight="85.0" prefWidth="258.0" />
->>>>>>> cee8bf217c2510cf9577285038279cf2737b6fb4
+
+        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="115.0" prefHeight="270.0" prefWidth="254.0" />
         <ImageView fitHeight="338.0" fitWidth="381.0" layoutX="304.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/images/radian.png" />
+                <Image url="/images/radian.png"/>
             </image>
         </ImageView>
-<<<<<<< HEAD
-        <Line fx:id="line" endY="150.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
-        <Label layoutX="93.0" layoutY="105.0" text="Data from COM port" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
-        <Button fx:id="writeDataInFile" layoutX="21.0" layoutY="405.0" mnemonicParsing="false" text="Receive" />
+        <Label layoutX="93.0" layoutY="97.0" text="Data from COM port" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
       <Circle centerX="-2.0" centerY="-3.0" fill="DODGERBLUE" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <ProgressIndicator fx:id="progressData" layoutX="92.0" layoutY="407.0" prefHeight="34.0" prefWidth="45.0" progress="0.0" />
-=======
-        <Button fx:id="writeDataInFile" layoutX="27.0" layoutY="272.0" mnemonicParsing="false" text="Receive" />
+      <ProgressIndicator fx:id="progressData" layoutX="85.0" layoutY="406.0" prefHeight="34.0" prefWidth="45.0" progress="0.0" />
+        <Button fx:id="writeDataInFile" layoutX="20.0" layoutY="405.0" mnemonicParsing="false" text="Receive" />
         <Line fx:id="line" endY="-9.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
       <Circle centerX="-2.0" centerY="-3.0" fill="#605bdd" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <ProgressBar fx:id="progressBar" layoutX="90.0" layoutY="276.0" prefHeight="18.0" prefWidth="88.0" progress="0.0" style="-fx-background-color: mediumslateblue;" />
-      <Button fx:id="initialData" layoutX="27.0" layoutY="107.0" mnemonicParsing="false" text="InitialData" />
->>>>>>> cee8bf217c2510cf9577285038279cf2737b6fb4
     </children>
 </AnchorPane>

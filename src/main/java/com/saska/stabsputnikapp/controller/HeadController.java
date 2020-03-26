@@ -1,7 +1,6 @@
 package com.saska.stabsputnikapp.controller;
 
 
-import com.saska.stabsputnikapp.receivingdata.ReceiveDataComPort;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -22,34 +21,45 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class HeadController extends ReceiveDataComPort {
+public class HeadController {
 
-    public static SerialPort serialPort;
+   public static SerialPort serialPort;
+
     @FXML
     private ResourceBundle resources;
+
     @FXML
     private URL location;
+
     @FXML
     private Line line;
+
     @FXML
     private Button changesButton;
+
     @FXML
     private TextField angleInput;
+
     @FXML
     private TextArea dataComPort;
+
     @FXML
     private Button writeDataInFile;
+
     @FXML
     private ProgressIndicator progressData;
 
+    String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+
     double beforeBx = ElementBx(parseFileReader(fileReader()));
+
     double beforeBy = ElementBy(parseFileReader(fileReader()));
 
     public HeadController() throws IOException {
     }
 
     public StringBuilder fileReader() throws IOException {
-        FileReader rFile = new FileReader("ReceiveData.txt");
+        FileReader rFile = new FileReader(FILEWITHDATAFROMCOMPORT);
         Scanner scan = new Scanner(rFile);
         StringBuilder fullFile = new StringBuilder();
         while (scan.hasNext()) {
@@ -58,6 +68,7 @@ public class HeadController extends ReceiveDataComPort {
         rFile.close();
         return fullFile;
     }
+
 
     public void initializeComPort() {
         serialPort = new SerialPort(getPort());
@@ -73,20 +84,23 @@ public class HeadController extends ReceiveDataComPort {
     public class EventListener implements SerialPortEventListener {
 
         public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() == 16) {
+            if (event.isRXCHAR() && event.getEventValue() > 4) {
                 try {
-                    byte[] buffer = serialPort.readBytes(16);
-                    serialPort.closePort();
+                    int[] buffer = serialPort.readIntArray(4);
+                    System.out.println(Arrays.toString(buffer));
                     fileWriter(buffer);
                     setDataInTextField(buffer[0],buffer[1]);
                     drawBeforeLine(buffer[0],buffer[1]);
+                    progressData.setProgress(buffer[0]);
+                    serialPort.closePort();
                 } catch (SerialPortException | IOException ex) {
                     System.out.println(ex);
                 }
             }
         }
-    }
 
+
+    }
 
     public String getPort() {
         String[] portNames = SerialPortList.getPortNames();
@@ -98,11 +112,7 @@ public class HeadController extends ReceiveDataComPort {
         JComboBox<String> portNameSelector = new JComboBox<>();
         portNameSelector.setModel(new DefaultComboBoxModel<String>());
         String[] portNames;
-        if (SerialNativeInterface.getOsType() == SerialNativeInterface.OS_MAC_OS_X) {
-            portNames = SerialPortList.getPortNames("/dev/", Pattern.compile("tty\\..*"));
-        } else {
-            portNames = SerialPortList.getPortNames();
-        }
+        portNames = SerialPortList.getPortNames();
         for (String portName : portNames) {
             portNameSelector.addItem(portName);
         }
@@ -122,8 +132,8 @@ public class HeadController extends ReceiveDataComPort {
         return "";
     }
 
-    private void fileWriter(byte[] buffer) throws IOException {
-        FileWriter wFile = new FileWriter("ReceiveData.txt");
+    private void fileWriter(int[] buffer) throws IOException {
+        FileWriter wFile = new FileWriter(FILEWITHDATAFROMCOMPORT);
         wFile.write(Arrays.toString(buffer));
         wFile.close();
     }
@@ -136,6 +146,7 @@ public class HeadController extends ReceiveDataComPort {
         line.setStrokeWidth(5);
         line.setStroke(Color.MEDIUMAQUAMARINE);
     }
+
 
     public void calculateAndDrawAfterLine(double beforeBx, double beforeBy){
         double alpha = Math.atan(beforeBy / beforeBx);
@@ -152,7 +163,6 @@ public class HeadController extends ReceiveDataComPort {
         line.setStrokeWidth(5);
         line.setStroke(Color.MEDIUMBLUE);
     }
-
 
     public void warningMessage(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -218,5 +228,4 @@ public class HeadController extends ReceiveDataComPort {
             }
         });
     }
-
 }

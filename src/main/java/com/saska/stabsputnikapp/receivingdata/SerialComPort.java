@@ -6,7 +6,6 @@ import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Enumeration;
 
 
@@ -88,6 +87,7 @@ public class SerialComPort implements SerialPortEventListener {
         if (oEvent.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
             try {
                 String inputLine = input.readLine();
+
                 System.out.println(inputLine);
                 fileWriter(inputLine);
             } catch (Exception e) {
@@ -101,7 +101,7 @@ public class SerialComPort implements SerialPortEventListener {
     public static void main(String[] args) throws Exception {
         SerialComPort main = new SerialComPort();
         main.initialize();
-        Thread t= new Thread() {
+        Thread t = new Thread() {
             public void run() {
                 //the following line will keep this app alive for 1000 seconds,
                 //waiting for events to occur and responding to them (printing incoming messages to console).
@@ -113,7 +113,7 @@ public class SerialComPort implements SerialPortEventListener {
     }
 
     private static void fileWriter(String inputLine) throws IOException {
-        FileWriter wFile = new FileWriter("SerialReceive.txt");
+        FileWriter wFile = new FileWriter("txtfiles/SerialReceive.txt");
         wFile.write(inputLine);
         wFile.close();
     }
