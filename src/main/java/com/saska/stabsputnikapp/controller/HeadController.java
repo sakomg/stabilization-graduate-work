@@ -1,6 +1,6 @@
 package com.saska.stabsputnikapp.controller;
 
-
+import com.saska.stabsputnikapp.receivingdata.ReadLog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class HeadController {
+public class HeadController extends ReadLog {
 
    public static SerialPort serialPort;
 
@@ -69,7 +69,6 @@ public class HeadController {
         return fullFile;
     }
 
-
     public void initializeComPort() {
         serialPort = new SerialPort(getPort());
         try {
@@ -84,10 +83,15 @@ public class HeadController {
     public class EventListener implements SerialPortEventListener {
 
         public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() > 4) {
+            if (event.isRXCHAR() && event.getEventValue() > 0) {
                 try {
-                    int[] buffer = serialPort.readIntArray(4);
-                    System.out.println(Arrays.toString(buffer));
+                    byte[] buffer = serialPort.readBytes(event.getEventValue());
+//                  System.out.println("bufferByte - " + Arrays.toString(buffer));
+                    String bufferStr = serialPort.readString(event.getEventValue());
+                    System.out.println("bufferStr - " + bufferStr);
+                    String[] parse = bufferStr.split("/n");
+//                  String string = new String(buffer);
+//                  System.out.println("String" + string);
                     fileWriter(buffer);
                     setDataInTextField(buffer[0],buffer[1]);
                     drawBeforeLine(buffer[0],buffer[1]);
@@ -98,7 +102,6 @@ public class HeadController {
                 }
             }
         }
-
 
     }
 
@@ -132,7 +135,7 @@ public class HeadController {
         return "";
     }
 
-    private void fileWriter(int[] buffer) throws IOException {
+    private void fileWriter(byte[] buffer) throws IOException {
         FileWriter wFile = new FileWriter(FILEWITHDATAFROMCOMPORT);
         wFile.write(Arrays.toString(buffer));
         wFile.close();
@@ -146,7 +149,6 @@ public class HeadController {
         line.setStrokeWidth(5);
         line.setStroke(Color.MEDIUMAQUAMARINE);
     }
-
 
     public void calculateAndDrawAfterLine(double beforeBx, double beforeBy){
         double alpha = Math.atan(beforeBy / beforeBx);
@@ -229,3 +231,5 @@ public class HeadController {
         });
     }
 }
+
+
