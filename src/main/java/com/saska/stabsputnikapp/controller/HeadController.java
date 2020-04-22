@@ -1,6 +1,5 @@
 package com.saska.stabsputnikapp.controller;
 
-import com.saska.stabsputnikapp.receivingdata.ReadLog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -24,36 +23,25 @@ import java.util.regex.Pattern;
 public class HeadController {
 
     public static SerialPort serialPort;
-
+    public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+    double beforeBx = ElementBx(parseFileReader(fileReader()));
+    double beforeBy = ElementBy(parseFileReader(fileReader()));
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
     private Line line;
-
     @FXML
     private Button changesButton;
-
     @FXML
     private TextField angleInput;
-
     @FXML
     private TextArea dataComPort;
-
     @FXML
     private Button writeDataInFile;
-
     @FXML
     private ProgressIndicator progressData;
-
-    public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
-
-    double beforeBx = ElementBx(parseFileReader(fileReader()));
-
-    double beforeBy = ElementBy(parseFileReader(fileReader()));
 
     public HeadController() throws IOException {
     }
@@ -78,31 +66,6 @@ public class HeadController {
             serialPort.addEventListener(new EventListener());
         } catch (SerialPortException ex) {
         }
-    }
-
-    public class EventListener implements SerialPortEventListener {
-
-        public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() > 0) {
-                try {
-                    byte[] buffer = serialPort.readBytes(event.getEventValue());
-//                  System.out.println("bufferByte - " + Arrays.toString(buffer));
-                    String bufferStr = serialPort.readString(event.getEventValue());
-                    System.out.println("bufferStr - " + bufferStr);
-                    String[] parse = bufferStr.split("/n");
-//                  String string = new String(buffer);
-//                  System.out.println("String" + string);
-                    fileWriter(buffer);
-                    setDataInTextField(buffer[0],buffer[1]);
-                    drawBeforeLine(buffer[0],buffer[1]);
-                    progressData.setProgress(buffer[0]);
-                    serialPort.closePort();
-                } catch (SerialPortException | IOException ex) {
-                    System.out.println(ex);
-                }
-            }
-        }
-
     }
 
     public String getPort() {
@@ -141,7 +104,7 @@ public class HeadController {
         wFile.close();
     }
 
-    public void drawBeforeLine(double beforeBx, double beforeBy){
+    public void drawBeforeLine(double beforeBx, double beforeBy) {
         line.setStartX(0);
         line.setStartY(0);
         line.setEndX(beforeBx);
@@ -150,7 +113,7 @@ public class HeadController {
         line.setStroke(Color.MEDIUMAQUAMARINE);
     }
 
-    public void calculateAndDrawAfterLine(double beforeBx, double beforeBy){
+    public void calculateAndDrawAfterLine(double beforeBx, double beforeBy) {
         double alpha = Math.atan(beforeBy / beforeBx);
         double beta = Double.parseDouble(angleInput.getText());
         double radius = Math.sqrt(Math.pow(beforeBx, 2) + Math.pow(beforeBy, 2));
@@ -166,7 +129,7 @@ public class HeadController {
         line.setStroke(Color.MEDIUMBLUE);
     }
 
-    public void warningMessage(){
+    public void warningMessage() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText("Empty field Rotation angle");
@@ -220,7 +183,7 @@ public class HeadController {
 
         writeDataInFile.setOnAction(actionEvent -> {
             initializeComPort();
-            });
+        });
 
         changesButton.setOnAction(actionEvent -> {
             if (angleInput.getText().isEmpty()) {
@@ -229,6 +192,31 @@ public class HeadController {
                 calculateAndDrawAfterLine(beforeBx, beforeBy);
             }
         });
+    }
+
+    public class EventListener implements SerialPortEventListener {
+
+        public void serialEvent(SerialPortEvent event) {
+            if (event.isRXCHAR() && event.getEventValue() > 0) {
+                try {
+                    byte[] buffer = serialPort.readBytes(event.getEventValue());
+//                  System.out.println("bufferByte - " + Arrays.toString(buffer));
+                    String bufferStr = serialPort.readString(event.getEventValue());
+                    System.out.println("bufferStr - " + bufferStr);
+                    String[] parse = bufferStr.split("/n");
+//                  String string = new String(buffer);
+//                  System.out.println("String" + string);
+                    fileWriter(buffer);
+                    setDataInTextField(buffer[0], buffer[1]);
+                    drawBeforeLine(buffer[0], buffer[1]);
+                    progressData.setProgress(buffer[0]);
+                    serialPort.closePort();
+                } catch (SerialPortException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }
+        }
+
     }
 }
 

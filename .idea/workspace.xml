@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/StabilizationGraduateWork.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
-    </list>
+    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -148,7 +140,7 @@
       <workItem from="1585725347481" duration="41684000" />
       <workItem from="1586272841139" duration="12614000" />
       <workItem from="1587119239160" duration="1911000" />
-      <workItem from="1587285744715" duration="3955000" />
+      <workItem from="1587285744715" duration="4138000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <created>1585252951588</created>
@@ -164,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585826355149</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="decompose on methods">
+      <created>1587561725058</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587561725058</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +171,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="all" />
-    <option name="LAST_COMMIT_MESSAGE" value="all" />
+    <MESSAGE value="decompose on methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="decompose on methods" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="188" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1585166976349">
@@ -195,10 +195,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1585903837216" />
-    <state x="392" y="28" key="CommitChangelistDialog2" timestamp="1585826352306">
+    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1587561716371">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="28" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1585826352306" />
+    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1587561716371" />
     <state x="595" y="163" key="FileChooserDialogImpl" timestamp="1586881513375">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -247,10 +247,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="235" y="59" width="946" height="682" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1587289173868" />
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1585826364039">
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1587561733328">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1585826364039" />
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1587561733328" />
     <state x="508" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1586273505744">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
