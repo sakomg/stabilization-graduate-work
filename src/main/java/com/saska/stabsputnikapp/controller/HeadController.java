@@ -21,9 +21,9 @@ import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class HeadController extends ReadLog {
+public class HeadController {
 
-   public static SerialPort serialPort;
+    public static SerialPort serialPort;
 
     @FXML
     private ResourceBundle resources;
@@ -49,7 +49,7 @@ public class HeadController extends ReadLog {
     @FXML
     private ProgressIndicator progressData;
 
-    String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+    public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
 
     double beforeBx = ElementBx(parseFileReader(fileReader()));
 
