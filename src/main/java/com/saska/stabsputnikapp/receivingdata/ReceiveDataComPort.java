@@ -16,6 +16,7 @@ class ReceiveDataComPort {
             serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
             serialPort.addEventListener(new EventListener());
         } catch (SerialPortException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -25,7 +26,8 @@ class ReceiveDataComPort {
         public void serialEvent(SerialPortEvent event) {
             if (event.isRXCHAR() && event.getEventValue() > 0) {
                 try {
-                    byte[] buffer = serialPort.readBytes(4);
+                    byte[] buffer = serialPort.readBytes();
+
 
                     System.out.println(Arrays.toString(buffer));
                     serialPort.closePort();
