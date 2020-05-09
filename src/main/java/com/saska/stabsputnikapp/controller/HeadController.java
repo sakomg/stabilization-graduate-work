@@ -1,5 +1,6 @@
 package com.saska.stabsputnikapp.controller;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -15,7 +16,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -24,6 +24,7 @@ public class HeadController {
 
     public static SerialPort serialPort;
     public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
     double beforeBx = ElementBx(parseFileReader(fileReader()));
     double beforeBy = ElementBy(parseFileReader(fileReader()));
     @FXML
@@ -42,6 +43,10 @@ public class HeadController {
     private Button writeDataInFile;
     @FXML
     private ProgressIndicator progressData;
+    @FXML
+    private Button setNewSpeed;
+    @FXML
+    private TextField inputNewSpeed;
 
     public HeadController() throws IOException {
     }
@@ -65,6 +70,7 @@ public class HeadController {
             serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
             serialPort.addEventListener(new EventListener());
         } catch (SerialPortException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -98,9 +104,9 @@ public class HeadController {
         return "";
     }
 
-    private void fileWriter(byte[] buffer) throws IOException {
-        FileWriter wFile = new FileWriter(FILEWITHDATAFROMCOMPORT);
-        wFile.write(Arrays.toString(buffer));
+    private void fileWriter(String buffer) throws IOException {
+        FileWriter wFile = new FileWriter(FILE, true);
+        wFile.write(buffer);
         wFile.close();
     }
 
@@ -163,16 +169,27 @@ public class HeadController {
         });
     }
 
-    @Override
-    public String toString() {
-        return "MainController{" +
-                "resources=" + resources +
-                ", location=" + location +
-                ", line=" + line +
-                ", changesButton=" + changesButton +
-                ", angleInput=" + angleInput +
-                ", dataComPort=" + dataComPort +
-                '}';
+    private class EventListener implements SerialPortEventListener {
+        public void serialEvent(SerialPortEvent event) {
+            if (event.isRXCHAR() && event.getEventValue() > 0) {
+                try {
+                    String data = serialPort.readString(event.getEventValue());
+                    System.out.println(inputNewSpeed.getText());
+                    serialPort.writeByte((byte)1);
+                    fileWriter(data);
+                    outputDataInTextField(data);
+                } catch (SerialPortException | IOException ex) {
+                    System.out.println(ex);
+                }
+            }
+
+        }
+    }
+
+
+    public void outputDataInTextField(String data) {
+        Platform.runLater(() ->
+                dataComPort.appendText(String.valueOf(data)));
     }
 
     @FXML
@@ -194,30 +211,18 @@ public class HeadController {
         });
     }
 
-    public class EventListener implements SerialPortEventListener {
-
-        public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() > 0) {
-                try {
-                    byte[] buffer = serialPort.readBytes(event.getEventValue());
-//                  System.out.println("bufferByte - " + Arrays.toString(buffer));
-                    String bufferStr = serialPort.readString(event.getEventValue());
-                    System.out.println("bufferStr - " + bufferStr);
-                    String[] parse = bufferStr.split("/n");
-//                  String string = new String(buffer);
-//                  System.out.println("String" + string);
-                    fileWriter(buffer);
-                    setDataInTextField(buffer[0], buffer[1]);
-                    drawBeforeLine(buffer[0], buffer[1]);
-                    progressData.setProgress(buffer[0]);
-                    serialPort.closePort();
-                } catch (SerialPortException | IOException ex) {
-                    System.out.println(ex);
-                }
-            }
-        }
-
+    @Override
+    public String toString() {
+        return "MainController {" +
+                "resources=" + resources +
+                ", location=" + location +
+                ", line=" + line +
+                ", changesButton=" + changesButton +
+                ", angleInput=" + angleInput +
+                ", dataComPort=" + dataComPort +
+                '}';
     }
+
 }
 
 

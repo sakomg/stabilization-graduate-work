@@ -28,7 +28,6 @@ class ReceiveDataComPort {
                 try {
                     byte[] buffer = serialPort.readBytes();
 
-
                     System.out.println(Arrays.toString(buffer));
                     serialPort.closePort();
 

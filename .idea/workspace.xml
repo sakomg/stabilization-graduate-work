@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/EventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/SerialComPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/SerialComPort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +61,13 @@
       <recent name="D:\StabilizationGraduateWork\src\main\resources\txtfile" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ReadLog">
-    <configuration name="HeadApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.HeadApp" />
+  <component name="RunManager" selected="Application.HeadApp">
+    <configuration name="CounterApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.CounterApp" />
       <module name="StabilizationGraduateWork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.saska.stabsputnikapp.*" />
+          <option name="PATTERN" value="othertasks.CodeWars.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -71,12 +75,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LeetCode9" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.LeetCode9" />
+    <configuration name="HeadApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.HeadApp" />
       <module name="StabilizationGraduateWork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="othertasks.CodeWars.*" />
+          <option name="PATTERN" value="com.saska.stabsputnikapp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.HeadApp" />
+        <item itemvalue="Application.CounterApp" />
         <item itemvalue="Application.ReadLog" />
         <item itemvalue="Application.ReceiveDataComPort" />
         <item itemvalue="Application.SerialComPort" />
-        <item itemvalue="Application.HeadApp" />
-        <item itemvalue="Application.LeetCode9" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +156,7 @@
       <workItem from="1587285744715" duration="4138000" />
       <workItem from="1588619631914" duration="678000" />
       <workItem from="1588756441245" duration="1179000" />
-      <workItem from="1588961653283" duration="1897000" />
+      <workItem from="1588961653283" duration="13811000" />
     </task>
     <task id="LOCAL-00001" summary="all">
       <created>1585252951588</created>
@@ -175,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587561725058</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="receive data from com port">
+      <created>1588964359883</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1588964359883</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,7 +195,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="all" />
     <MESSAGE value="decompose on methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="decompose on methods" />
+    <MESSAGE value="receive data from com port" />
+    <option name="LAST_COMMIT_MESSAGE" value="receive data from com port" />
   </component>
   <component name="WindowStateProjectService">
     <state x="530" y="188" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1585166976349">
@@ -207,10 +219,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1585903837216" />
-    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1587561716371">
+    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1588964356977">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1587561716371" />
+    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1588964356977" />
     <state x="595" y="163" key="FileChooserDialogImpl" timestamp="1586881513375">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -219,22 +231,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1584973998021" />
-    <state width="1557" height="140" key="GridCell.Tab.0.bottom" timestamp="1588619544142">
+    <state width="1557" height="140" key="GridCell.Tab.0.bottom" timestamp="1589009905900">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="140" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1588619544142" />
-    <state width="1557" height="140" key="GridCell.Tab.0.center" timestamp="1588619544141">
+    <state width="1557" height="140" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
+    <state width="1557" height="140" key="GridCell.Tab.0.center" timestamp="1589009905900">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="140" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1588619544141" />
-    <state width="1557" height="140" key="GridCell.Tab.0.left" timestamp="1588619544141">
+    <state width="1557" height="140" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
+    <state width="1557" height="140" key="GridCell.Tab.0.left" timestamp="1589009905899">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="140" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1588619544141" />
-    <state width="1557" height="140" key="GridCell.Tab.0.right" timestamp="1588619544142">
+    <state width="1557" height="140" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589009905899" />
+    <state width="1557" height="140" key="GridCell.Tab.0.right" timestamp="1589009905900">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="140" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1588619544142" />
+    <state width="1557" height="140" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
     <state width="1238" height="272" key="GridCell.Tab.1.bottom" timestamp="1585908013376">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -259,18 +271,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="235" y="59" width="946" height="682" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1587289173868" />
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1587561733328">
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1588964362224">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1587561733328" />
+    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1588964362224" />
     <state x="508" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1586273505744">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="508" y="257" key="com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860" timestamp="1586273505744" />
-    <state x="611" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587561666695">
+    <state x="611" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588964324168">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="611" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1587561666695" />
+    <state x="611" y="349" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860" timestamp="1588964324168" />
     <state x="364" y="169" width="872" height="554" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1585165529931">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
