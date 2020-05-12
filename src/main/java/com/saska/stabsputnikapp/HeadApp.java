@@ -1,6 +1,7 @@
 package com.saska.stabsputnikapp;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -22,5 +23,14 @@ public class HeadApp extends Application {
         stage.setTitle("Graduate work");
         stage.setScene(new Scene(root));
         stage.show();
+
+        stage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);
+        });
     }
+
+
+
+
 }

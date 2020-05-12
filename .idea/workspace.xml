@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="" />
+    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="approach send data from com port">
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,17 +19,20 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="experiment" />
+      </map>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZWGy3gnUZ77o6g9EhSROujUOVq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -33,6 +40,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\StabilizationGraduateWork\src\main\resources\txtfiles" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.HeadApp">
     <configuration name="HeadApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -65,6 +77,8 @@
       <list>
         <item itemvalue="Application.HeadApp" />
         <item itemvalue="Application.SerialComPort" />
+        <item itemvalue="Application.HeadApp" />
+        <item itemvalue="Application.SerialComPort" />
       </list>
     </recent_temporary>
   </component>
@@ -90,29 +104,61 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1584965781386" />
-    <state x="636" y="328" key="Github.ShareDialog" timestamp="1584973998021">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1589312289253">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1584973998021" />
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom" timestamp="1584973710935">
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589312289253" />
+    <state x="636" y="328" key="Github.ShareDialog" timestamp="1589311674834">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1584973710935" />
-    <state width="1557" height="120" key="GridCell.Tab.0.center" timestamp="1584973710934">
+    <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1589311674834" />
+    <state width="1557" height="265" key="GridCell.Tab.0.bottom" timestamp="1589313066736">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
-    <state width="1557" height="120" key="GridCell.Tab.0.left" timestamp="1584973710934">
+    <state width="1557" height="265" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589313066736" />
+    <state width="1557" height="265" key="GridCell.Tab.0.center" timestamp="1589313066735">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
-    <state width="1557" height="120" key="GridCell.Tab.0.right" timestamp="1584973710934">
+    <state width="1557" height="265" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589313066735" />
+    <state width="1557" height="265" key="GridCell.Tab.0.left" timestamp="1589313066735">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1584973710934" />
+    <state width="1557" height="265" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589313066735" />
+    <state width="1557" height="265" key="GridCell.Tab.0.right" timestamp="1589313066735">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="265" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589313066735" />
+    <state width="1557" height="275" key="GridCell.Tab.1.bottom" timestamp="1589312507824">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="275" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589312507824" />
+    <state width="1557" height="275" key="GridCell.Tab.1.center" timestamp="1589312507823">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="275" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1589312507823" />
+    <state width="1557" height="275" key="GridCell.Tab.1.left" timestamp="1589312507823">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="275" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1589312507823" />
+    <state width="1557" height="275" key="GridCell.Tab.1.right" timestamp="1589312507824">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state width="1557" height="275" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1589312507824" />
     <state x="318" y="51" key="SettingsEditor" timestamp="1584974061510">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="318" y="51" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584974061510" />
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589312423514">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1589312423514" />
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog" timestamp="1589312423514">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.SelectionHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1589312423514" />
+    <state x="579" y="142" key="git4idea.branch.GitSmartOperationDialog" timestamp="1589311609987">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="579" y="142" key="git4idea.branch.GitSmartOperationDialog/0.0.1600.860@0.0.1600.860" timestamp="1589311609987" />
   </component>
 </project>

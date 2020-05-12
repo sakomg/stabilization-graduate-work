@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -15,11 +14,11 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
     <children>
-        <Button fx:id="changesButton" layoutX="202.0" layoutY="67.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Apply" />
-        <Label layoutX="21.0" layoutY="44.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
-        <TextField fx:id="angleInput" cache="true" layoutX="21.0" layoutY="67.0" prefHeight="25.0" prefWidth="169.0" promptText="Input" />
+        <Button fx:id="changesButton" layoutX="203.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Apply" />
+        <Label layoutX="20.0" layoutY="35.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
+        <TextField fx:id="angleInput" cache="true" layoutX="20.0" layoutY="55.0" prefHeight="25.0" prefWidth="172.0" promptText="Input" />
         <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="700.0" style="-fx-background-color: mediumslateblue;">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
@@ -59,16 +58,21 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <TextArea fx:id="dataComPort" layoutX="21.0" layoutY="136.0" prefHeight="270.0" prefWidth="254.0" />
+
+        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="153.0" prefHeight="97.0" prefWidth="256.0" promptText="receive revolution cooler" />
         <ImageView fitHeight="338.0" fitWidth="381.0" layoutX="304.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="/images/radian.png" />
+                <Image url="/images/radian.png"/>
             </image>
         </ImageView>
-        <Line fx:id="line" endY="150.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
-        <Label layoutX="94.0" layoutY="113.0" text="Data from COM port" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
-        <Button fx:id="writeDataInFile" layoutX="21.0" layoutY="411.0" mnemonicParsing="false" text="Receive" />
       <Circle centerX="-2.0" centerY="-3.0" fill="DODGERBLUE" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <ProgressBar fx:id="progressBar" layoutX="90.0" layoutY="415.0" prefHeight="18.0" prefWidth="182.0" progress="0.0" />
+        <Button fx:id="setNewSpeed" layoutX="20.0" layoutY="358.0" mnemonicParsing="false" text="Revolutions" />
+        <Line fx:id="line" endY="-9.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
+      <Circle centerX="-2.0" centerY="-3.0" fill="#605bdd" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+      <TextField fx:id="inputNewSpeed" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="172.0" promptText="input new speed" />
+      <TextArea fx:id="resultWrite" layoutX="20.0" layoutY="257.0" prefHeight="91.0" prefWidth="256.0" />
+      <Button fx:id="setPoint" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Set point" />
+      <TextField fx:id="inputSetPoint" layoutX="106.0" layoutY="396.0" prefHeight="26.0" prefWidth="172.0" promptText="input setpoint" />
+      <Button fx:id="showRevolution" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="256.0" text="show revolution" />
     </children>
 </AnchorPane>

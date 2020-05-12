@@ -1,7 +1,6 @@
 package com.saska.stabsputnikapp.controller;
 
-
-import com.saska.stabsputnikapp.receivingdata.ReceiveDataComPort;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -17,14 +16,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class HeadController extends ReceiveDataComPort {
+public class HeadController {
 
+    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
     public static SerialPort serialPort;
+    public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+    double beforeBx = ElementBx(parseFileReader(fileReader()));
+    double beforeBy = ElementBy(parseFileReader(fileReader()));
     @FXML
     private ResourceBundle resources;
     @FXML
@@ -38,12 +40,26 @@ public class HeadController extends ReceiveDataComPort {
     @FXML
     private TextArea dataComPort;
     @FXML
-    private Button writeDataInFile;
+    private ProgressIndicator progressData;
     @FXML
-    private ProgressBar progressBar;
+    private Button setNewSpeed;
+    @FXML
+    private TextField inputNewSpeed;
+    @FXML
+    private TextArea resultWrite;
+    @FXML
+    private TextField inputSetPoint;
+    @FXML
+    private Button setPoint;
+    @FXML
+    private Button showRevolution;
 
-    public static StringBuilder fileReader() throws IOException {
-        FileReader rFile = new FileReader("ReceiveData.txt");
+
+    public HeadController() throws IOException {
+    }
+
+    public StringBuilder fileReader() throws IOException {
+        FileReader rFile = new FileReader(FILEWITHDATAFROMCOMPORT);
         Scanner scan = new Scanner(rFile);
         StringBuilder fullFile = new StringBuilder();
         while (scan.hasNext()) {
@@ -53,7 +69,19 @@ public class HeadController extends ReceiveDataComPort {
         return fullFile;
     }
 
-    public static void initializeComPort() {
+    @Override
+    public String toString() {
+        return "MainController {" +
+                "resources=" + resources +
+                ", location=" + location +
+                ", line=" + line +
+                ", changesButton=" + changesButton +
+                ", angleInput=" + angleInput +
+                ", dataComPort=" + dataComPort +
+                '}';
+    }
+
+    public void initializeComPort() {
         serialPort = new SerialPort(getPort());
         try {
             serialPort.openPort();
@@ -61,24 +89,21 @@ public class HeadController extends ReceiveDataComPort {
             serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
             serialPort.addEventListener(new EventListener());
         } catch (SerialPortException ex) {
+            ex.printStackTrace();
         }
     }
 
-    static String getPort() {
+    public String getPort() {
         String[] portNames = SerialPortList.getPortNames();
         return portNames[0];
     }
 
     @SuppressWarnings("unchecked")
-    private static String requestPort() {
+    private void requestPort() {
         JComboBox<String> portNameSelector = new JComboBox<>();
         portNameSelector.setModel(new DefaultComboBoxModel<String>());
         String[] portNames;
-        if (SerialNativeInterface.getOsType() == SerialNativeInterface.OS_MAC_OS_X) {
-            portNames = SerialPortList.getPortNames("/dev/", Pattern.compile("tty\\..*"));
-        } else {
-            portNames = SerialPortList.getPortNames();
-        }
+        portNames = SerialPortList.getPortNames();
         for (String portName : portNames) {
             portNameSelector.addItem(portName);
         }
@@ -91,73 +116,51 @@ public class HeadController extends ReceiveDataComPort {
         panel.add(new JLabel("Port "));
         panel.add(portNameSelector);
         if (JOptionPane.showConfirmDialog(null, panel, "Select the port", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            return portNameSelector.getSelectedItem().toString();
+            portNameSelector.getSelectedItem().toString();
         } else {
             System.exit(0);
         }
-        return "";
     }
 
-    private static void fileWriter(byte[] buffer) throws IOException {
-        FileWriter wFile = new FileWriter("ReceiveData.txt");
-        wFile.write(Arrays.toString(buffer));
+    private void fileWriter(String buffer) throws IOException {
+        FileWriter wFile = new FileWriter(FILE, true);
+        wFile.write(buffer);
         wFile.close();
     }
 
-    @FXML
-    void initialize() throws IOException {
-
-        validationAngleInput();
-        fileReader();
-        requestPort();
-
-        double beforeBx = ElementBx(parseFileReader(fileReader()));
-        double beforeBy = ElementBy(parseFileReader(fileReader()));
-
-
-        writeDataInFile.setOnAction(actionEvent -> {
-            initializeComPort();
-            progressBar.setProgress(beforeBx);
-            progressBar.setProgress(beforeBy);
-            try {
-                parseFileReader(fileReader());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            setDataInTextField(beforeBx, beforeBy);
-        });
-
+    public void drawBeforeLine(double beforeBx, double beforeBy) {
         line.setStartX(0);
         line.setStartY(0);
         line.setEndX(beforeBx);
         line.setEndY(beforeBy);
         line.setStrokeWidth(5);
         line.setStroke(Color.MEDIUMAQUAMARINE);
-
-        changesButton.setOnAction(actionEvent -> {
-            if (angleInput.getText().isEmpty()) {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Уведомление");
-                alert.setHeaderText("Поле Rotation angle пустое");
-                alert.setContentText("Введите в поле Rotation angle число, чтобы продолжить");
-                alert.showAndWait();
-            } else {
-                double alpha = Math.atan(beforeBy / beforeBx);
-                double beta = Double.parseDouble(angleInput.getText());
-                double radius = Math.sqrt(Math.pow(beforeBx, 2) + Math.pow(beforeBy, 2));
-
-                double afterBx = radius * Math.cos(alpha + beta * Math.PI / 180);
-                double afterBy = radius * Math.sin(alpha + beta * Math.PI / 180);
-
-                line.setStartX(0);
-                line.setStartY(0);
-                line.setEndX(afterBx);
-                line.setEndY(afterBy);
-                line.setStrokeWidth(5);
-                line.setStroke(Color.MEDIUMBLUE);
-            }
-        });
     }
+
+    public void calculateAndDrawAfterLine(double beforeBx, double beforeBy) {
+        double alpha = Math.atan(beforeBy / beforeBx);
+        double beta = Double.parseDouble(angleInput.getText());
+        double radius = Math.sqrt(Math.pow(beforeBx, 2) + Math.pow(beforeBy, 2));
+
+        double afterBx = radius * Math.cos(alpha + beta * Math.PI / 180);
+        double afterBy = radius * Math.sin(alpha + beta * Math.PI / 180);
+
+        line.setStartX(0);
+        line.setStartY(0);
+        line.setEndX(afterBx);
+        line.setEndY(afterBy);
+        line.setStrokeWidth(5);
+        line.setStroke(Color.MEDIUMBLUE);
+    }
+
+    public void warningMessage() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning");
+        alert.setHeaderText("Empty field Rotation angle");
+        alert.setContentText("Enter the number in the angle rotation field");
+        alert.showAndWait();
+    }
+
 
     private String[] parseFileReader(StringBuilder fullFile) {
         String[] numbers = fullFile.toString().replace("[", "").replace("]", "").split(",");
@@ -185,34 +188,67 @@ public class HeadController extends ReceiveDataComPort {
         });
     }
 
-    @Override
-    public String toString() {
-        return "MainController{" +
-                "resources=" + resources +
-                ", location=" + location +
-                ", line=" + line +
-                ", changesButton=" + changesButton +
-                ", angleInput=" + angleInput +
-                ", dataComPort=" + dataComPort +
-                '}';
+    public void outputDataInTextField(String data) {
+        Platform.runLater(() ->
+                dataComPort.appendText(String.valueOf(data)));
     }
 
-    public static class EventListener implements SerialPortEventListener {
+    public void resultInputWrite(Boolean resultInput) {
+        Platform.runLater(() ->
+                resultWrite.appendText(String.valueOf(resultInput)));
+    }
 
+    public class EventListener implements SerialPortEventListener {
         public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() == 16) {
+            if (event.isRXCHAR() && event.getEventValue() > 0) {
                 try {
-                    byte[] buffer = serialPort.readBytes(16);
-                    // System.out.println(buffer[0]);
-                    // System.out.println(buffer[1]);
-                    serialPort.closePort();
-                    // System.out.println(Arrays.toString(buffer));
-                    fileWriter(buffer);
-
+                    String data = serialPort.readString(event.getEventValue()); // read com port
+                    fileWriter(data); // write in file read com port
+                    outputDataInTextField(data); // show data with com port
                 } catch (SerialPortException | IOException ex) {
                     System.out.println(ex);
                 }
             }
         }
     }
+
+        public void algorithmPID() {
+            MiniPID miniPid = new MiniPID(0.25, 0.01, 0.4);
+        }
+
+        @FXML
+        void initialize() {
+            validationAngleInput();
+            requestPort();
+
+            setPoint.setOnAction(action -> {
+                try {
+                    resultWrite.setText("Setpoint: ");
+                    resultInputWrite(serialPort.writeString("set_point" + inputSetPoint.getText()));
+                } catch (SerialPortException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            setNewSpeed.setOnAction(action -> {
+                try {
+                    resultWrite.setText("New revolution: ");
+                    resultInputWrite(serialPort.writeString("new_speed" + inputNewSpeed.getText()));
+                } catch (SerialPortException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            showRevolution.setOnAction(actionEvent -> initializeComPort());
+
+            changesButton.setOnAction(actionEvent -> {
+                if (angleInput.getText().isEmpty()) {
+                    warningMessage();
+                } else {
+                    calculateAndDrawAfterLine(beforeBx, beforeBy);
+                }
+            });
+        }
 }
+
+
