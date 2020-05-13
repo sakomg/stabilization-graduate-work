@@ -40,8 +40,6 @@ public class HeadController {
     @FXML
     private TextArea dataComPort;
     @FXML
-    private ProgressIndicator progressData;
-    @FXML
     private Button setNewSpeed;
     @FXML
     private TextField inputNewSpeed;
@@ -216,39 +214,39 @@ public class HeadController {
             MiniPID miniPid = new MiniPID(0.25, 0.01, 0.4);
         }
 
-        @FXML
-        void initialize() {
-            validationAngleInput();
-            requestPort();
+    @FXML
+    void initialize() {
+        validationAngleInput();
+        requestPort();
 
-            setPoint.setOnAction(action -> {
-                try {
-                    resultWrite.setText("Setpoint: ");
-                    resultInputWrite(serialPort.writeString("set_point" + inputSetPoint.getText()));
-                } catch (SerialPortException e) {
-                    e.printStackTrace();
-                }
-            });
+        setPoint.setOnAction(action -> {
+            try {
+                resultWrite.setText("Setpoint: ");
+                resultInputWrite(serialPort.writeString("set_point" + inputSetPoint.getText()));
+            } catch (SerialPortException e) {
+                e.printStackTrace();
+            }
+        });
 
-            setNewSpeed.setOnAction(action -> {
-                try {
-                    resultWrite.setText("New revolution: ");
-                    resultInputWrite(serialPort.writeString("new_speed" + inputNewSpeed.getText()));
-                } catch (SerialPortException e) {
-                    e.printStackTrace();
-                }
-            });
+        setNewSpeed.setOnAction(action -> {
+            try {
+                resultWrite.setText("New revolution: ");
+                resultInputWrite(serialPort.writeString("new_speed" + inputNewSpeed.getText()));
+            } catch (SerialPortException e) {
+                e.printStackTrace();
+            }
+        });
 
-            showRevolution.setOnAction(actionEvent -> initializeComPort());
+        showRevolution.setOnAction(actionEvent -> initializeComPort());
 
-            changesButton.setOnAction(actionEvent -> {
-                if (angleInput.getText().isEmpty()) {
-                    warningMessage();
-                } else {
-                    calculateAndDrawAfterLine(beforeBx, beforeBy);
-                }
-            });
-        }
+        changesButton.setOnAction(actionEvent -> {
+            if (angleInput.getText().isEmpty()) {
+                warningMessage();
+            } else {
+                calculateAndDrawAfterLine(beforeBx, beforeBy);
+            }
+        });
+    }
 }
 
 
