@@ -6,6 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.*;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import jssc.*;
@@ -65,6 +67,14 @@ public class HeadController {
         }
         rFile.close();
         return fullFile;
+    }
+
+    @FXML // Copy the result to the clipboard
+    private void onCopy() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+        content.putString(dataComPort.getText().trim());
+        clipboard.setContent(content);
     }
 
     @Override

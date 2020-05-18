@@ -20,6 +20,7 @@ public class HeadApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResourceAsStream(fxmlFile));
         stage.getIcons().add(new Image("/images/planets_Earth.jpg"));
+
         stage.setTitle("Graduate work");
         stage.setScene(new Scene(root));
         stage.show();
