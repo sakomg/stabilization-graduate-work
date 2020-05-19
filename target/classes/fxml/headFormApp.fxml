@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
-<?import javafx.scene.shape.Line?>
-<?import com.jfoenix.controls.JFXButton?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="300.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
     <children>
-        <Button fx:id="changesButton" layoutX="203.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Apply" />
-        <Label layoutX="20.0" layoutY="35.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
-        <TextField fx:id="angleInput" cache="true" layoutX="20.0" layoutY="55.0" prefHeight="25.0" prefWidth="172.0" promptText="Input" />
-        <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="700.0" style="-fx-background-color: mediumslateblue;">
+        <MenuBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="300.0" style="-fx-background-color: mediumslateblue;">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
@@ -60,20 +52,34 @@
             </menus>
         </MenuBar>
 
-        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="153.0" prefHeight="97.0" prefWidth="256.0" promptText="receive revolution cooler" />
-        <ImageView fitHeight="338.0" fitWidth="381.0" layoutX="304.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="/images/radian.png"/>
-            </image>
-        </ImageView>
-      <Circle centerX="-2.0" centerY="-3.0" fill="DODGERBLUE" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-        <Button fx:id="setNewSpeed" layoutX="20.0" layoutY="358.0" mnemonicParsing="false" text="Revolutions" />
-        <Line fx:id="line" endY="-9.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
-      <Circle centerX="-2.0" centerY="-3.0" fill="#605bdd" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
-      <TextField fx:id="inputNewSpeed" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="172.0" promptText="input new speed" />
-      <TextArea fx:id="resultWrite" layoutX="20.0" layoutY="257.0" prefHeight="91.0" prefWidth="256.0" />
-      <Button fx:id="setPoint" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Set point" />
-      <TextField fx:id="inputSetPoint" layoutX="106.0" layoutY="396.0" prefHeight="26.0" prefWidth="172.0" promptText="input setpoint" />
-      <Button fx:id="showRevolution" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="256.0" text="show revolution" />
+        <TextArea fx:id="dataComPort" layoutX="25.0" layoutY="77.0" prefHeight="130.0" prefWidth="250.0" promptText="receive revolution cooler" />
+        <Button fx:id="setNewSpeed" layoutX="25.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Send revolutions">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="inputNewSpeed" layoutX="25.0" layoutY="297.0" prefHeight="26.0" prefWidth="106.0" promptText=" input new speed" />
+      <TextArea fx:id="resultWrite" layoutX="25.0" layoutY="248.0" prefHeight="38.0" prefWidth="250.0" />
+      <Button fx:id="setPoint" layoutX="167.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="Send setpoint">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="inputSetPoint" layoutX="167.0" layoutY="297.0" prefHeight="26.0" prefWidth="106.0" promptText=" input setpoint" />
+      <Button fx:id="openPort" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Open">
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor></Button>
+      <Button fx:id="closePort" layoutX="210.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Close">
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor></Button>
+      <Button fx:id="buildGraph" layoutX="25.0" layoutY="386.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="250.0" text="Plot">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="copy" layoutX="25.0" layoutY="214.0" mnemonicParsing="false" onAction="#onCopy" prefHeight="25.0" prefWidth="66.0" text="Copy">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

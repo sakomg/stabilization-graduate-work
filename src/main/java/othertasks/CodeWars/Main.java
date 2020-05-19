@@ -1,4 +1,6 @@
-package com.saska.stabsputnikapp.controller;
+package othertasks.CodeWars;
+
+import com.saska.stabsputnikapp.controller.MiniPID;
 
 public class Main {
 

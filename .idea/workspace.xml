@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/GraphController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/graphic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" afterDir="false" />
@@ -46,7 +48,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SerialMonitor" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/LineChart JavaFX/javafxrealtimechartsdemo" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -55,6 +57,19 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.HeadApp">
+    <configuration name="ChartTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.controller.ChartTest" />
+      <module name="StabilizationGraduateWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.saska.stabsputnikapp.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="HeadApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.HeadApp" />
       <module name="StabilizationGraduateWork" />
@@ -84,6 +99,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HeadApp" />
+        <item itemvalue="Application.ChartTest" />
         <item itemvalue="Application.SerialComPort" />
         <item itemvalue="Application.HeadApp" />
         <item itemvalue="Application.SerialComPort" />
@@ -102,7 +118,7 @@
       <updated>1584947687952</updated>
       <workItem from="1584947692763" duration="16774000" />
       <workItem from="1589485311027" duration="3085000" />
-      <workItem from="1589671613838" duration="14306000" />
+      <workItem from="1589671613838" duration="44848000" />
     </task>
     <task id="LOCAL-00001" summary="receive and send close">
       <created>1589313485942</created>
@@ -125,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589386627346</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ready">
+      <created>1589799789725</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589799789725</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,45 +157,50 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="receive and send close" />
     <MESSAGE value="add less info in readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="add less info in readme" />
+    <MESSAGE value="ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="ready" />
   </component>
   <component name="WindowStateProjectService">
     <state x="685" y="292" key="#Notifications" timestamp="1589313430286">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="685" y="292" key="#Notifications/0.0.1600.860@0.0.1600.860" timestamp="1589313430286" />
+    <state x="878" y="170" width="390" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1589888921005">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="878" y="170" width="390" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1589888921005" />
     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1584965781386">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1584965781386" />
-    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1589386625031">
+    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1589799764303">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1589386625031" />
-    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1589796025981">
+    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1589799764303" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1589829356402">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589796025981" />
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1589829356402" />
     <state x="636" y="328" key="Github.ShareDialog" timestamp="1589313398013">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1589313398013" />
-    <state width="1557" height="166" key="GridCell.Tab.0.bottom" timestamp="1589794085646">
+    <state width="1557" height="166" key="GridCell.Tab.0.bottom" timestamp="1589890191168">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="166" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589794085646" />
-    <state width="1557" height="166" key="GridCell.Tab.0.center" timestamp="1589794085645">
+    <state width="1557" height="166" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589890191168" />
+    <state width="1557" height="166" key="GridCell.Tab.0.center" timestamp="1589890191167">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="166" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589794085645" />
-    <state width="1557" height="166" key="GridCell.Tab.0.left" timestamp="1589794085645">
+    <state width="1557" height="166" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589890191167" />
+    <state width="1557" height="166" key="GridCell.Tab.0.left" timestamp="1589890191167">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="166" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589794085645" />
-    <state width="1557" height="166" key="GridCell.Tab.0.right" timestamp="1589794085645">
+    <state width="1557" height="166" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589890191167" />
+    <state width="1557" height="166" key="GridCell.Tab.0.right" timestamp="1589890191168">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="166" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589794085645" />
+    <state width="1557" height="166" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589890191168" />
     <state width="1557" height="275" key="GridCell.Tab.1.bottom" timestamp="1589312507824">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -193,10 +221,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="318" y="51" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1584974061510" />
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1589386631352">
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1589799769259">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1589386631352" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1589799769259" />
     <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589312423514">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -213,5 +241,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="579" y="142" key="git4idea.branch.GitSmartOperationDialog/0.0.1600.860@0.0.1600.860" timestamp="1589311609987" />
+    <state x="182" y="90" key="new project wizard" timestamp="1589800225981">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="182" y="90" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1589800225981" />
   </component>
 </project>
