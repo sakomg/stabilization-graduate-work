@@ -18,9 +18,11 @@ import jssc.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
@@ -28,6 +30,7 @@ public class HeadController {
 
     public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
     public static SerialPort serialPort;
+    public static String data;
 
     @FXML
     private TextArea dataComPort;
@@ -59,18 +62,33 @@ public class HeadController {
     @FXML
     private Button copy;
 
-    public HeadController() throws IOException {
-    }
-
-    public Integer fileReader() throws IOException {
+    public StringBuilder fileReader() throws IOException {
         FileReader rFile = new FileReader(FILE);
         Scanner scan = new Scanner(rFile);
         StringBuilder fullFile = new StringBuilder();
-        while (scan.hasNext()) {
-            fullFile.append(scan.next());
+        while (scan.hasNextInt()) {
+            fullFile.append(scan.nextInt());
         }
         rFile.close();
-        return Integer.parseInt(String.valueOf(fullFile));
+        return fullFile;
+    }
+
+    public String readFile() throws IOException {
+        return Files.lines(Paths.get(FILE)).reduce("",(a, b) -> a + "\n" + b).trim();
+    }
+
+    public List<Double> reader() throws FileNotFoundException {
+        File file = new File(FILE);
+        Scanner scanner = new Scanner(file);
+        List<Double> doubles = new ArrayList<>();
+        while (scanner.hasNext()) {
+            if (scanner.hasNextDouble()) {
+                doubles.add(scanner.nextDouble());
+            } else {
+                scanner.next();
+            }
+        }
+        return doubles;
     }
 
     @FXML
@@ -101,7 +119,7 @@ public class HeadController {
     @SuppressWarnings("unchecked")
     private void requestPort() {
         JComboBox<String> portNameSelector = new JComboBox<>();
-        portNameSelector.setModel(new DefaultComboBoxModel<String>());
+        portNameSelector.setModel(new DefaultComboBoxModel<>());
         String[] portNames;
         portNames = SerialPortList.getPortNames();
         for (String portName : portNames) {
@@ -120,13 +138,6 @@ public class HeadController {
         } else {
             System.exit(0);
         }
-    }
-
-
-    private void fileWriter(String buffer) throws IOException {
-        FileWriter wFile = new FileWriter(FILE, true);
-        wFile.write(buffer);
-        wFile.close();
     }
 
     public void warningMessage() {
@@ -162,27 +173,34 @@ public class HeadController {
         }
     }
 
-    public void outputDataInTextField(String data) {
-        Platform.runLater(() ->
-                dataComPort.appendText(String.valueOf(data)));
-    }
-
     public void resultInputWrite(Boolean resultInput) {
         Platform.runLater(() ->
                 resultWrite.appendText(String.valueOf(resultInput)));
     }
 
     public class EventListener implements SerialPortEventListener {
+
         public void serialEvent(SerialPortEvent event) {
             if (event.isRXCHAR() && event.getEventValue() > 0) {
                 try {
-                    String data = serialPort.readString(event.getEventValue());
+                    data = serialPort.readString(event.getEventValue());
                     fileWriter(data);
                     outputDataInTextField(data);
                 } catch (SerialPortException | IOException ex) {
                     System.out.println(ex);
                 }
             }
+        }
+
+        private void fileWriter(String buffer) throws IOException {
+            FileWriter wFile = new FileWriter(FILE, true);
+            wFile.write(buffer);
+            wFile.close();
+        }
+
+        public void outputDataInTextField(String data) {
+            Platform.runLater(() ->
+                    dataComPort.appendText(String.valueOf(data)));
         }
     }
 
@@ -243,12 +261,12 @@ public class HeadController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         validationSpeed();
         validationSetpoint();
         closePort.setTooltip(new Tooltip("Click the button and the\n" + "serial port will be closed"));
         openPort.setTooltip(new Tooltip("Click the button and the\n" + "serial port will be opened"));
-        algorithmPID();
+        //algorithmPID();
         requestPort();
         setPoint.setOnAction(action -> {
             if (inputSetPoint.getText().isEmpty()) {

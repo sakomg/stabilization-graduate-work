@@ -8,7 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class HeadApp extends Application {
+
+    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
 
     public static void main(String[] args) {
         launch(args);
@@ -21,11 +26,20 @@ public class HeadApp extends Application {
         Parent root = loader.load(getClass().getResourceAsStream(fxmlFile));
         stage.getIcons().add(new Image("/images/planets_Earth.jpg"));
 
-        stage.setTitle("Graduate work");
+        stage.setTitle("Mini Terminal");
         stage.setScene(new Scene(root));
         stage.show();
 
         stage.setOnCloseRequest(e -> {
+            PrintWriter writer = null;
+            try {
+                writer = new PrintWriter(FILE);
+            } catch (FileNotFoundException fileNotFoundException) {
+                fileNotFoundException.printStackTrace();
+            }
+            assert writer != null;
+            writer.print("");
+            writer.close();
             Platform.exit();
             System.exit(0);
         });

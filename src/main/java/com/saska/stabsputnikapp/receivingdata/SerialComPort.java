@@ -112,7 +112,7 @@ public class SerialComPort implements SerialPortEventListener {
         System.out.println("Started");
     }
 
-    private static void fileWriter(String inputLine) throws IOException {
+    public static void fileWriter(String inputLine) throws IOException {
         FileWriter wFile = new FileWriter("SerialReceive.txt");
         wFile.write(inputLine);
         wFile.close();
