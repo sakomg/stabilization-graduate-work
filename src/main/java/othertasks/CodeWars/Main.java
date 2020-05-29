@@ -8,9 +8,7 @@ public class Main {
      * @param args Any arguments passed from stdin
      */
     public static void main(String[] args) {
-        MiniPID miniPID;
-
-        miniPID = new MiniPID(0.25, 0.01, 0.4);
+        MiniPID miniPID = new MiniPID(0.25, 0.01, 0.4);
         miniPID.setOutputLimits(10);
         //miniPID.setMaxIOutput(2);
         //miniPID.setOutputRampRate(3);

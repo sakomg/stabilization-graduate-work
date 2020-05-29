@@ -14,14 +14,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class GraphController  {
 
     HeadController headController = new HeadController();
 
-    final int WINDOW_SIZE = 15;
+    final int WINDOW_SIZE = 55;
     @FXML
     private LineChart<String, Double> lineChart;
     @FXML
@@ -29,8 +28,8 @@ public class GraphController  {
     @FXML
     private NumberAxis yAxis;
 
-    public List<Double> dataPlot() throws IOException {
-        return headController.reader();
+    public List<Double> dataPlotOutput() throws IOException {
+        return headController.readerOutput();
     }
 
     public void plotGraph() throws IOException {
@@ -40,37 +39,37 @@ public class GraphController  {
         yAxis.setAnimated(false);
         lineChart.setAnimated(false);
 
-        XYChart.Series<String, Double> inputLine = new XYChart.Series<>();
+       // XYChart.Series<String, Double> inputLine = new XYChart.Series<>();
         XYChart.Series<String, Double> outputLine = new XYChart.Series<>();
+      //  XYChart.Series<String, Double> setLine = new XYChart.Series<>();
 
-        inputLine.setName("input");
+        //inputLine.setName("input");
+        //inputLine.getClass().getResource("stylesheet.css");
         outputLine.setName("output");
+        outputLine.getClass().getResource("stylesheet.css");
+        //setLine.setName("setpoint");
 
-        lineChart.getData().add(inputLine);
+       // lineChart.getData().add(inputLine);
         lineChart.getData().add(outputLine);
-        List<Double> list = dataPlot();
+       // lineChart.getData().add(setLine);
+        List<Double> list = dataPlotOutput();
         Iterator<Double> iterationData = list.iterator();
 
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
         scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Integer randomInput = ThreadLocalRandom.current().nextInt(10);
-            Integer randomOutput = ThreadLocalRandom.current().nextInt(20);
             Platform.runLater(() -> {
                 Date now = new Date();
                 if (iterationData.hasNext()) {
-                    inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), iterationData.next()));
-                    if (inputLine.getData().size() > WINDOW_SIZE)
-                        inputLine.getData().remove(0);
+                    outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), iterationData.next()));
+                    if (outputLine.getData().size() > WINDOW_SIZE)
+                        outputLine.getData().remove(0);
                 } else {
-                    inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), 0.0));
-                    if (inputLine.getData().size() > WINDOW_SIZE)
-                        inputLine.getData().remove(0);
+                    outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), 0.0));
                 }
-//              outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), randomOutput));
-
-//              if (outputLine.getData().size() > WINDOW_SIZE)
-//                    outputLine.getData().remove(0);
+//                    setLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), 0.0));
+//                    if (setLine.getData().size() > WINDOW_SIZE)
+//                        setLine.getData().remove(0);
             });
         }, 0, 1, TimeUnit.SECONDS);
     }
@@ -79,5 +78,4 @@ public class GraphController  {
     void initialize() throws IOException {
         plotGraph();
     }
-
 }

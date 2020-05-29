@@ -14,6 +14,7 @@ import java.io.PrintWriter;
 public class HeadApp extends Application {
 
     public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
+    public static final String FILESET = "src/main/resources/txtfiles/ReceiveSetpoint.txt";
 
     public static void main(String[] args) {
         launch(args);
@@ -25,25 +26,28 @@ public class HeadApp extends Application {
         FXMLLoader loader = new FXMLLoader();
         Parent root = loader.load(getClass().getResourceAsStream(fxmlFile));
         stage.getIcons().add(new Image("/images/planets_Earth.jpg"));
-
-        stage.setTitle("Mini Terminal");
+        //stage.setResizable(false);
+        stage.setTitle("SUBTERMINAL");
         stage.setScene(new Scene(root));
         stage.show();
 
         stage.setOnCloseRequest(e -> {
-            PrintWriter writer = null;
+            PrintWriter writerData = null;
+            PrintWriter writerSet = null;
             try {
-                writer = new PrintWriter(FILE);
+                writerData = new PrintWriter(FILE);
+                writerSet = new PrintWriter(FILESET);
             } catch (FileNotFoundException fileNotFoundException) {
                 fileNotFoundException.printStackTrace();
             }
-            assert writer != null;
-            writer.print("");
-            writer.close();
+            assert writerData != null;
+            assert writerSet != null;
+            writerData.print("");
+            writerSet.print("");
+            writerData.close();
+            writerSet.close();
             Platform.exit();
             System.exit(0);
         });
     }
-
-
 }
