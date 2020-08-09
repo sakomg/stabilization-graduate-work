@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.validation.RequiredFieldValidator;
 import com.saska.stabsputnikapp.chart.BuildLineChart;
 import com.saska.stabsputnikapp.hardware.EventListener;
+import com.saska.stabsputnikapp.hardware.InitSerialPort;
 import com.saska.stabsputnikapp.pid.SimplyPID;
 import com.saska.stabsputnikapp.receivingdata.CommunicateFile;
 import javafx.application.Platform;
@@ -16,7 +17,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import jssc.SerialPort;
 import jssc.SerialPortException;
 import jssc.SerialPortList;
 
@@ -30,13 +30,14 @@ import static com.saska.stabsputnikapp.hardware.EventListener.serialPort;
 
 public class HeadController {
 
-    public static final String FILESET = "src/main/resources/txt/ReceiveSetpoint.txt";
-    public static final String LOGFILESET = "src/main/resources/txt/LogSetpoint.txt";
+    private static final String FILESET = "src/main/resources/txt/ReceiveSetpoint.txt";
+    private static final String LOGFILESET = "src/main/resources/txt/LogSetpoint.txt";
     private static final String FILE_OUTPUT = "src/main/resources/txt/Output.txt";
     EventListener eventListener = new EventListener();
     CommunicateFile communicate = new CommunicateFile();
     RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
     BuildLineChart buildLineChart = new BuildLineChart();
+    InitSerialPort init = new InitSerialPort();
 
     @FXML
     private Button setKoeffP;
@@ -77,25 +78,8 @@ public class HeadController {
     @FXML
     private JFXButton clearChart;
 
-    public void initializeComPort() {
-        serialPort = new SerialPort(getPort());
-        try {
-            serialPort.openPort();
-            serialPort.setParams(SerialPort.BAUDRATE_115200, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-            serialPort.setEventsMask(SerialPort.MASK_RXCHAR);
-            serialPort.addEventListener(new EventListener());
-        } catch (SerialPortException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public String getPort() {
-        String[] portNames = SerialPortList.getPortNames();
-        return portNames[0];
-    }
-
     @SuppressWarnings("unchecked")
-    private void requestPort() {
+    public void requestPort() {
         JComboBox<String> portNameSelector = new JComboBox<>();
         portNameSelector.setModel(new DefaultComboBoxModel<>());
         String[] portNames;
@@ -112,14 +96,14 @@ public class HeadController {
         panel.add(new JLabel("Port "));
         panel.add(portNameSelector);
         if (JOptionPane.showConfirmDialog(null, panel, "Select the port", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            portNameSelector.getSelectedItem().toString();
+            portNameSelector.getSelectedItem();
         } else {
             System.exit(0);
         }
     }
 
     public void warningMessage() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+        Alert alert= new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning");
         alert.setHeaderText("Empty field");
         alert.setContentText("Enter the number in input field");
@@ -133,7 +117,7 @@ public class HeadController {
         alert.showAndWait();
     }
 
-    private void validationSetpoint() {
+    public void validationSetpoint() {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
         inputSetPoint.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches()) inputSetPoint.setText(oldValue);
@@ -147,21 +131,21 @@ public class HeadController {
         });
     }
 
-    private void validationkP() {
+    public void validationkP() {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
         kP.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches()) kP.setText(oldValue);
         });
     }
 
-    private void validationkI() {
+    public void validationkI() {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
         kI.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches()) kI.setText(oldValue);
         });
     }
 
-    private void validationkD() {
+    public void validationkD() {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
         kD.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches()) kD.setText(oldValue);
@@ -176,7 +160,7 @@ public class HeadController {
 
         for (int i = 0; i < 30; i++) {
             System.out.printf("%d\t%3.2f\t%3.2f\t%3.2f\t%3.2f\n", i, pid.getSetPoint(), currentValue, output, (pid.getSetPoint() - currentValue));
-            communicate.fileWriter(String.valueOf(output), FILE_OUTPUT);
+            communicate.fileWriter(output + "\n", FILE_OUTPUT);
             if (i == 15)
                 pid.setSetpoint(50);
 
@@ -187,7 +171,7 @@ public class HeadController {
     }
 
     public void openConnectionReadSerialPort() {
-        initializeComPort();
+        init.initializeComPort();
         openOrClose.setText("Open port");
         openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be closed"));
     }
@@ -198,7 +182,7 @@ public class HeadController {
         openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
     }
 
-    private void onCopy() {
+    public void onCopy() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent content = new ClipboardContent();
         if (eventListener.dataComPort != null)
@@ -264,8 +248,8 @@ public class HeadController {
             if (kI.getText().isEmpty()) {
                 warningMessage();
             } else {
-                try {
                     resultWrite.setText("new koeffI: ");
+                try {
                     resultInputWrite(serialPort.writeString("new_koefI" + kI.getText()));
                 } catch (SerialPortException e) {
                     e.printStackTrace();

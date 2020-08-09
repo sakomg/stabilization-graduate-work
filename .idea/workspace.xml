@@ -10,12 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/chart/BuildLineChart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/hardware/InitSerialPort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/hardware/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/hardware/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/pid/SimplyPID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/pid/SimplyPID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/txt/Output" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
     </list>
@@ -192,7 +191,7 @@
       <workItem from="1594897377474" duration="2050000" />
       <workItem from="1596736944545" duration="4085000" />
       <workItem from="1596978581657" duration="11333000" />
-      <workItem from="1597001216563" duration="5144000" />
+      <workItem from="1597001216563" duration="7490000" />
     </task>
     <task id="LOCAL-00001" summary="receive and send close">
       <created>1589313485942</created>
@@ -264,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597005309916</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="create class BuildLineChart">
+      <created>1597006458107</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1597006458107</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +286,8 @@
     <MESSAGE value="refactor code" />
     <MESSAGE value="refactor code v2" />
     <MESSAGE value="refactor code v3" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor code v3" />
+    <MESSAGE value="create class BuildLineChart" />
+    <option name="LAST_COMMIT_MESSAGE" value="create class BuildLineChart" />
   </component>
   <component name="WindowStateProjectService">
     <state x="685" y="292" key="#Notifications" timestamp="1589313430286">
@@ -291,10 +298,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="540" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1597005123649" />
-    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1596990630897">
+    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1597008011827">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1596990630897" />
+    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1597008011827" />
     <state x="568" y="224" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590516672078">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -319,10 +326,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="546" y="283" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.860@0.0.1600.860" timestamp="1596991672359" />
-    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1597005302763">
+    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1597006454370">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1597005302763" />
+    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1597006454370" />
     <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1596747655716">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -335,22 +342,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1589313398013" />
-    <state width="1224" height="184" key="GridCell.Tab.0.bottom" timestamp="1597006078015">
+    <state width="1225" height="192" key="GridCell.Tab.0.bottom" timestamp="1597008716094">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1224" height="184" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1597006078015" />
-    <state width="1224" height="184" key="GridCell.Tab.0.center" timestamp="1597006078015">
+    <state width="1225" height="192" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1597008716094" />
+    <state width="1225" height="192" key="GridCell.Tab.0.center" timestamp="1597008716093">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1224" height="184" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1597006078015" />
-    <state width="1224" height="184" key="GridCell.Tab.0.left" timestamp="1597006078014">
+    <state width="1225" height="192" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1597008716093" />
+    <state width="1225" height="192" key="GridCell.Tab.0.left" timestamp="1597008716093">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1224" height="184" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1597006078014" />
-    <state width="1224" height="184" key="GridCell.Tab.0.right" timestamp="1597006078015">
+    <state width="1225" height="192" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1597008716093" />
+    <state width="1225" height="192" key="GridCell.Tab.0.right" timestamp="1597008716094">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1224" height="184" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1597006078015" />
+    <state width="1225" height="192" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1597008716094" />
     <state width="1557" height="125" key="GridCell.Tab.1.bottom" timestamp="1590438929261">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
