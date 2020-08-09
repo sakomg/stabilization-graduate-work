@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 
 public class HeadApp extends Application {
 
-    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
-    public static final String FILESET = "src/main/resources/txtfiles/ReceiveSetpoint.txt";
+    public static final String FILE = "src/main/resources/txt/SerialReceive.txt";
+    public static final String FILESET = "src/main/resources/txt/ReceiveSetpoint.txt";
 
     public static void main(String[] args) {
         launch(args);

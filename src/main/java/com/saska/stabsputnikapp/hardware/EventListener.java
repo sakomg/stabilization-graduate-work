@@ -13,8 +13,8 @@ import java.io.IOException;
 
 public class EventListener implements SerialPortEventListener {
 
-    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
-    public static final String LOGFILE = "src/main/resources/txtfiles/LogReceiveData.txt";
+    public static final String FILE = "src/main/resources/txt/SerialReceive.txt";
+    public static final String LOGFILE = "src/main/resources/txt/LogReceiveData.txt";
 
     public static String data;
     public static SerialPort serialPort;

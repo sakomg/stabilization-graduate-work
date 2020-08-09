@@ -38,8 +38,9 @@ import static com.saska.stabsputnikapp.hardware.EventListener.serialPort;
 
 public class HeadController {
 
-    public static final String FILESET = "src/main/resources/txtfiles/ReceiveSetpoint.txt";
-    public static final String LOGFILESET = "src/main/resources/txtfiles/LogSetpoint.txt";
+    public static final String FILESET = "src/main/resources/txt/ReceiveSetpoint.txt";
+    public static final String LOGFILESET = "src/main/resources/txt/LogSetpoint.txt";
+    private static final String FILE_OUTPUT = "src/main/resources/txt/Output.txt";
     final int WINDOW_SIZE = 77;
     EventListener eventListener = new EventListener();
     CommunicateFile communicate = new CommunicateFile();
@@ -184,7 +185,7 @@ public class HeadController {
         });
     }
 
-    public void countPID() {
+    public void countPID() throws IOException {
         double output = 0;
         double currentValue = 25;
         SimplyPID pid = new SimplyPID(0, 1.2, 0, 0.025);
@@ -192,7 +193,7 @@ public class HeadController {
 
         for (int i = 0; i < 30; i++) {
             System.out.printf("%d\t%3.2f\t%3.2f\t%3.2f\t%3.2f\n", i, pid.getSetPoint(), currentValue, output, (pid.getSetPoint() - currentValue));
-
+            communicate.fileWriter(String.valueOf(output), FILE_OUTPUT);
             if (i == 15)
                 pid.setSetpoint(50);
 
@@ -278,7 +279,7 @@ public class HeadController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         validateAllField();
         //requestPort();
         countPID();

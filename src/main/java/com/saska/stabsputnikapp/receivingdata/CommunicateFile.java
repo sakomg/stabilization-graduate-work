@@ -9,7 +9,7 @@ import java.util.*;
 
 public class CommunicateFile {
 
-    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
+    public static final String FILE = "src/main/resources/txt/SerialReceive.txt";
 
     public static Date removeTime(Date date) {
         Calendar cal = Calendar.getInstance();
