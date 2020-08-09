@@ -49,23 +49,21 @@ public class BuildLineChart {
 
         final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss:SSS");
         ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(() -> {
-                Date now = new Date();
+        scheduledExecutorService.scheduleAtFixedRate(() -> Platform.runLater(() -> {
+            Date now = new Date();
 
-                inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[0].trim())));
-                if (inputLine.getData().size() > WINDOW_SIZE)
-                    inputLine.getData().remove(0);
+            inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[0].trim())));
+            if (inputLine.getData().size() > WINDOW_SIZE)
+                inputLine.getData().remove(0);
 
-                setLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[1].trim())));
-                if (setLine.getData().size() > WINDOW_SIZE)
-                    setLine.getData().remove(0);
+            setLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[1].trim())));
+            if (setLine.getData().size() > WINDOW_SIZE)
+                setLine.getData().remove(0);
 
-                outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[2].trim())));
-                if (outputLine.getData().size() > WINDOW_SIZE)
-                    outputLine.getData().remove(0);
-            });
-        }, 0, 100, TimeUnit.MILLISECONDS);
+            outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[2].trim())));
+            if (outputLine.getData().size() > WINDOW_SIZE)
+                outputLine.getData().remove(0);
+        }), 0, 100, TimeUnit.MILLISECONDS);
     }
 
     public void clearChart() {

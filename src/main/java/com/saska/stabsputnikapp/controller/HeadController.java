@@ -170,7 +170,7 @@ public class HeadController {
     @FXML
     void initialize() throws IOException {
         validateAllField();
-        //checkPort.requestPort();
+        checkPort.requestPort();
         countPID();
 
         setPoint.setOnAction(action -> {
