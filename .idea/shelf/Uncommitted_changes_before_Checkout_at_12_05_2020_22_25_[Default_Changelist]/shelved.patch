@@ -1,0 +1,584 @@
+Index: src/main/resources/fxml/headFormApp.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Menu?>\r\n<?import javafx.scene.control.MenuBar?>\r\n<?import javafx.scene.control.MenuItem?>\r\n<?import javafx.scene.control.ProgressIndicator?>\r\n<?import javafx.scene.control.SeparatorMenuItem?>\r\n<?import javafx.scene.control.TextArea?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Circle?>\r\n<?import javafx.scene.shape.Line?>\r\n\r\n<AnchorPane id=\"AnchorPane\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"450.0\" prefWidth=\"700.0\" style=\"-fx-background-color: WHITE;\" xmlns=\"http://javafx.com/javafx/8.0.241\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.saska.stabsputnikapp.controller.HeadController\">\r\n    <children>\r\n        <Button fx:id=\"changesButton\" layoutX=\"203.0\" layoutY=\"55.0\" mnemonicParsing=\"false\" prefHeight=\"25.0\" prefWidth=\"73.0\" text=\"Apply\" />\r\n        <Label layoutX=\"20.0\" layoutY=\"35.0\" text=\"Rotation angle:\" textOverrun=\"CENTER_ELLIPSIS\" />\r\n        <TextField fx:id=\"angleInput\" cache=\"true\" layoutX=\"20.0\" layoutY=\"55.0\" prefHeight=\"25.0\" prefWidth=\"172.0\" promptText=\"Input\" />\r\n        <MenuBar layoutY=\"2.0\" prefHeight=\"25.0\" prefWidth=\"700.0\" style=\"-fx-background-color: mediumslateblue;\">\r\n            <menus>\r\n                <Menu mnemonicParsing=\"false\" text=\"File\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"New\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Open…\" />\r\n                        <Menu mnemonicParsing=\"false\" text=\"Open Recent\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Close\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Save\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Save As…\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Revert\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Preferences…\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Quit\" />\r\n                    </items>\r\n                </Menu>\r\n                <Menu mnemonicParsing=\"false\" text=\"Edit\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Undo\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Redo\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Cut\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Copy\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Paste\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Delete\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Select All\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Unselect All\" />\r\n                    </items>\r\n                </Menu>\r\n                <Menu mnemonicParsing=\"false\" text=\"Help\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"About MyHelloApp\" />\r\n                    </items>\r\n                </Menu>\r\n            </menus>\r\n        </MenuBar>\r\n\r\n        <TextArea fx:id=\"dataComPort\" layoutX=\"20.0\" layoutY=\"115.0\" prefHeight=\"270.0\" prefWidth=\"254.0\" />\r\n        <ImageView fitHeight=\"338.0\" fitWidth=\"381.0\" layoutX=\"304.0\" layoutY=\"67.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n            <image>\r\n                <Image url=\"@/images/radian.png\" />\r\n            </image>\r\n        </ImageView>\r\n        <Label layoutX=\"93.0\" layoutY=\"97.0\" text=\"Data from COM port\" textAlignment=\"CENTER\" textOverrun=\"CENTER_ELLIPSIS\" />\r\n      <Circle centerX=\"-2.0\" centerY=\"-3.0\" fill=\"DODGERBLUE\" layoutX=\"474.0\" layoutY=\"236.0\" radius=\"17.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" />\r\n      <ProgressIndicator fx:id=\"progressData\" layoutX=\"85.0\" layoutY=\"406.0\" prefHeight=\"34.0\" prefWidth=\"45.0\" progress=\"0.0\" />\r\n        <Button fx:id=\"writeDataInFile\" layoutX=\"20.0\" layoutY=\"405.0\" mnemonicParsing=\"false\" text=\"Receive\" />\r\n        <Line fx:id=\"line\" endY=\"-9.0\" fill=\"#eb6464\" layoutX=\"472.0\" layoutY=\"233.0\" strokeLineCap=\"ROUND\" strokeWidth=\"6.0\" />\r\n      <Circle centerX=\"-2.0\" centerY=\"-3.0\" fill=\"#605bdd\" layoutX=\"474.0\" layoutY=\"236.0\" radius=\"17.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" />\r\n      <TextField fx:id=\"inputNewSpeed\" layoutX=\"126.0\" layoutY=\"408.0\" prefHeight=\"26.0\" prefWidth=\"132.0\" promptText=\"input new speed\" />\r\n    </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/fxml/headFormApp.fxml	(revision a4bfbd0915b5a3b5450e2f93b401bf91c64a0d40)
++++ src/main/resources/fxml/headFormApp.fxml	(date 1589311379404)
+@@ -5,7 +5,6 @@
+ <?import javafx.scene.control.Menu?>
+ <?import javafx.scene.control.MenuBar?>
+ <?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.control.ProgressIndicator?>
+ <?import javafx.scene.control.SeparatorMenuItem?>
+ <?import javafx.scene.control.TextArea?>
+ <?import javafx.scene.control.TextField?>
+@@ -60,18 +59,20 @@
+             </menus>
+         </MenuBar>
+ 
+-        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="115.0" prefHeight="270.0" prefWidth="254.0" />
++        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="153.0" prefHeight="97.0" prefWidth="256.0" promptText="receive revolution cooler" />
+         <ImageView fitHeight="338.0" fitWidth="381.0" layoutX="304.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+-                <Image url="@/images/radian.png" />
++                <Image url="/images/radian.png"/>
+             </image>
+         </ImageView>
+-        <Label layoutX="93.0" layoutY="97.0" text="Data from COM port" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+       <Circle centerX="-2.0" centerY="-3.0" fill="DODGERBLUE" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+-      <ProgressIndicator fx:id="progressData" layoutX="85.0" layoutY="406.0" prefHeight="34.0" prefWidth="45.0" progress="0.0" />
+-        <Button fx:id="writeDataInFile" layoutX="20.0" layoutY="405.0" mnemonicParsing="false" text="Receive" />
++        <Button fx:id="setNewSpeed" layoutX="20.0" layoutY="358.0" mnemonicParsing="false" text="Revolutions" />
+         <Line fx:id="line" endY="-9.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
+       <Circle centerX="-2.0" centerY="-3.0" fill="#605bdd" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+-      <TextField fx:id="inputNewSpeed" layoutX="126.0" layoutY="408.0" prefHeight="26.0" prefWidth="132.0" promptText="input new speed" />
++      <TextField fx:id="inputNewSpeed" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="172.0" promptText="input new speed" />
++      <TextArea fx:id="resultWrite" layoutX="20.0" layoutY="257.0" prefHeight="91.0" prefWidth="256.0" />
++      <Button fx:id="setPoint" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Set point" />
++      <TextField fx:id="inputSetPoint" layoutX="106.0" layoutY="396.0" prefHeight="26.0" prefWidth="172.0" promptText="input setpoint" />
++      <Button fx:id="showRevolution" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="256.0" text="show revolution" />
+     </children>
+ </AnchorPane>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/EventListener.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"FxmlFile\" />\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1ZWGy3gnUZ77o6g9EhSROujUOVq\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$USER_HOME$/Desktop/CustomerDemo\" />\r\n    <property name=\"project.structure.last.edited\" value=\"SDKs\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.22819768\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.32122904\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"vcs.Git\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\StabilizationGraduateWork\\src\\main\" />\r\n      <recent name=\"D:\\StabilizationGraduateWork\\src\\main\\java\" />\r\n      <recent name=\"D:\\StabilizationGraduateWork\\src\\main\\java\\com\\saska\\stabsputnikapp\" />\r\n      <recent name=\"D:\\StabilizationGraduateWork\\src\" />\r\n      <recent name=\"D:\\StabilizationGraduateWork\\src\\main\\resources\\txtfile\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.HeadApp\">\r\n    <configuration name=\"CounterApp\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"othertasks.CodeWars.CounterApp\" />\r\n      <module name=\"StabilizationGraduateWork\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"othertasks.CodeWars.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"HeadApp\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.saska.stabsputnikapp.HeadApp\" />\r\n      <module name=\"StabilizationGraduateWork\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.saska.stabsputnikapp.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ReadLog\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.saska.stabsputnikapp.controller.ReadLog\" />\r\n      <module name=\"StabilizationGraduateWork\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.saska.stabsputnikapp.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"ReceiveDataComPort\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.saska.stabsputnikapp.receivingdata.ReceiveDataComPort\" />\r\n      <module name=\"StabilizationGraduateWork\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.saska.stabsputnikapp.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"SerialComPort\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.saska.stabsputnikapp.receivingdata.SerialComPort\" />\r\n      <module name=\"StabilizationGraduateWork\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"com.saska.stabsputnikapp.controller.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.HeadApp\" />\r\n        <item itemvalue=\"Application.CounterApp\" />\r\n        <item itemvalue=\"Application.ReadLog\" />\r\n        <item itemvalue=\"Application.ReceiveDataComPort\" />\r\n        <item itemvalue=\"Application.SerialComPort\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1584947687952</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1584947687952</updated>\r\n      <workItem from=\"1584947692763\" duration=\"43830000\" />\r\n      <workItem from=\"1585164357412\" duration=\"28572000\" />\r\n      <workItem from=\"1585259399493\" duration=\"8025000\" />\r\n      <workItem from=\"1585725347481\" duration=\"41684000\" />\r\n      <workItem from=\"1586272841139\" duration=\"12614000\" />\r\n      <workItem from=\"1587119239160\" duration=\"1911000\" />\r\n      <workItem from=\"1587285744715\" duration=\"4138000\" />\r\n      <workItem from=\"1588619631914\" duration=\"678000\" />\r\n      <workItem from=\"1588756441245\" duration=\"1179000\" />\r\n      <workItem from=\"1588961653283\" duration=\"13811000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"all\">\r\n      <created>1585252951588</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1585252951588</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"all\">\r\n      <created>1585826355149</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1585826355149</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"decompose on methods\">\r\n      <created>1587561725058</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1587561725058</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"receive data from com port\">\r\n      <created>1588964359883</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1588964359883</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"5\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"all\" />\r\n    <MESSAGE value=\"decompose on methods\" />\r\n    <MESSAGE value=\"receive data from com port\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"receive data from com port\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"530\" y=\"188\" key=\"#com.intellij.codeInsight.editorActions.RestoreReferencesDialog\" timestamp=\"1585166976349\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"530\" y=\"188\" key=\"#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1585166976349\" />\r\n    <state x=\"605\" y=\"139\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1585252057705\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"605\" y=\"139\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860\" timestamp=\"1585252057705\" />\r\n    <state x=\"118\" y=\"178\" key=\"#com.intellij.ide.util.TreeClassChooserDialog\" timestamp=\"1585231012963\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"118\" y=\"178\" key=\"#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1585231012963\" />\r\n    <state x=\"527\" y=\"359\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog\" timestamp=\"1588962346385\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"527\" y=\"359\" key=\"#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1588962346385\" />\r\n    <state x=\"530\" y=\"180\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog\" timestamp=\"1585903837216\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"530\" y=\"180\" key=\"#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1585903837216\" />\r\n    <state x=\"392\" y=\"0\" key=\"CommitChangelistDialog2\" timestamp=\"1588964356977\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"392\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1600.860@0.0.1600.860\" timestamp=\"1588964356977\" />\r\n    <state x=\"595\" y=\"163\" key=\"FileChooserDialogImpl\" timestamp=\"1586881513375\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"595\" y=\"163\" key=\"FileChooserDialogImpl/0.0.1600.860@0.0.1600.860\" timestamp=\"1586881513375\" />\r\n    <state x=\"636\" y=\"328\" key=\"Github.ShareDialog\" timestamp=\"1584973998021\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"636\" y=\"328\" key=\"Github.ShareDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1584973998021\" />\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1589009905900\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860\" timestamp=\"1589009905900\" />\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.center\" timestamp=\"1589009905900\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860\" timestamp=\"1589009905900\" />\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.left\" timestamp=\"1589009905899\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860\" timestamp=\"1589009905899\" />\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.right\" timestamp=\"1589009905900\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1557\" height=\"140\" key=\"GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860\" timestamp=\"1589009905900\" />\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1585908013376\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860\" timestamp=\"1585908013376\" />\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.center\" timestamp=\"1585908013375\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860\" timestamp=\"1585908013375\" />\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.left\" timestamp=\"1585908013375\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860\" timestamp=\"1585908013375\" />\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.right\" timestamp=\"1585908013376\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state width=\"1238\" height=\"272\" key=\"GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860\" timestamp=\"1585908013376\" />\r\n    <state x=\"330\" y=\"88\" key=\"Maven.ArtifactSearchDialog\" timestamp=\"1585246692387\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"330\" y=\"88\" key=\"Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1585246692387\" />\r\n    <state x=\"235\" y=\"59\" width=\"946\" height=\"682\" key=\"SettingsEditor\" timestamp=\"1587289173868\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"235\" y=\"59\" width=\"946\" height=\"682\" key=\"SettingsEditor/0.0.1600.860@0.0.1600.860\" timestamp=\"1587289173868\" />\r\n    <state x=\"392\" y=\"166\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1588964362224\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"392\" y=\"166\" key=\"Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860\" timestamp=\"1588964362224\" />\r\n    <state x=\"508\" y=\"257\" key=\"com.intellij.ide.util.TipDialog\" timestamp=\"1586273505744\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"508\" y=\"257\" key=\"com.intellij.ide.util.TipDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1586273505744\" />\r\n    <state x=\"611\" y=\"349\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1588964324168\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"611\" y=\"349\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1600.860@0.0.1600.860\" timestamp=\"1588964324168\" />\r\n    <state x=\"364\" y=\"169\" width=\"872\" height=\"554\" key=\"com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2\" timestamp=\"1585165529931\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"364\" y=\"169\" width=\"872\" height=\"554\" key=\"com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1600.860@0.0.1600.860\" timestamp=\"1585165529931\" />\r\n    <state x=\"182\" y=\"134\" key=\"new project wizard\" timestamp=\"1588619727523\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"182\" y=\"134\" key=\"new project wizard/0.0.1600.860@0.0.1600.860\" timestamp=\"1588619727523\" />\r\n    <state x=\"508\" y=\"64\" key=\"refactoring.ChangeSignatureDialog\" timestamp=\"1584987490149\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"508\" y=\"64\" key=\"refactoring.ChangeSignatureDialog/0.0.1600.860@0.0.1600.860\" timestamp=\"1584987490149\" />\r\n    <state x=\"456\" y=\"195\" key=\"run.anything.popup\" timestamp=\"1585082095494\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"456\" y=\"195\" key=\"run.anything.popup/0.0.1600.860@0.0.1600.860\" timestamp=\"1585082095494\" />\r\n    <state x=\"463\" y=\"180\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1585232070983\">\r\n      <screen x=\"0\" y=\"0\" width=\"1600\" height=\"860\" />\r\n    </state>\r\n    <state x=\"463\" y=\"180\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1600.860@0.0.1600.860\" timestamp=\"1585232070983\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision a4bfbd0915b5a3b5450e2f93b401bf91c64a0d40)
++++ .idea/workspace.xml	(date 1589311525710)
+@@ -2,16 +2,21 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/EventListener.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/MainAppExperiment.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/MiniPID.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/experiment/Main.fxml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/experiment/MainController.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/Main.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Main.fxml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/EventListener.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveData.txt" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -36,12 +41,15 @@
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectId" id="1ZWGy3gnUZ77o6g9EhSROujUOVq" />
+-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+   <component name="PropertiesComponent">
++    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="WebServerToolWindowFactoryState" value="false" />
+@@ -50,15 +58,15 @@
+     <property name="project.structure.last.edited" value="SDKs" />
+     <property name="project.structure.proportion" value="0.22819768" />
+     <property name="project.structure.side.proportion" value="0.32122904" />
+-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
++    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+   </component>
+   <component name="RecentsManager">
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="D:\StabilizationGraduateWork\src\main\java\com\saska\stabsputnikapp\receivingdata" />
++      <recent name="D:\StabilizationGraduateWork\src\main\resources\fxml" />
+       <recent name="D:\StabilizationGraduateWork\src\main" />
+       <recent name="D:\StabilizationGraduateWork\src\main\java" />
+       <recent name="D:\StabilizationGraduateWork\src\main\java\com\saska\stabsputnikapp" />
+-      <recent name="D:\StabilizationGraduateWork\src" />
+-      <recent name="D:\StabilizationGraduateWork\src\main\resources\txtfile" />
+     </key>
+   </component>
+   <component name="RunManager" selected="Application.HeadApp">
+@@ -67,7 +75,7 @@
+       <module name="StabilizationGraduateWork" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="othertasks.CodeWars.*" />
++          <option name="PATTERN" value="com.saska.stabsputnikapp.controller.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -88,8 +96,8 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ReadLog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.controller.ReadLog" />
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.Main" />
+       <module name="StabilizationGraduateWork" />
+       <extension name="coverage">
+         <pattern>
+@@ -101,12 +109,12 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="ReceiveDataComPort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.receivingdata.ReceiveDataComPort" />
++    <configuration name="MainAppExperiment" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.MainAppExperiment" />
+       <module name="StabilizationGraduateWork" />
+       <extension name="coverage">
+         <pattern>
+-          <option name="PATTERN" value="com.saska.stabsputnikapp.controller.*" />
++          <option name="PATTERN" value="com.saska.stabsputnikapp.*" />
+           <option name="ENABLED" value="true" />
+         </pattern>
+       </extension>
+@@ -114,8 +122,8 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
+-    <configuration name="SerialComPort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+-      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.receivingdata.SerialComPort" />
++    <configuration name="ReadLog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.controller.ReadLog" />
+       <module name="StabilizationGraduateWork" />
+       <extension name="coverage">
+         <pattern>
+@@ -130,10 +138,10 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.HeadApp" />
++        <item itemvalue="Application.Main" />
++        <item itemvalue="Application.MainAppExperiment" />
+         <item itemvalue="Application.CounterApp" />
+         <item itemvalue="Application.ReadLog" />
+-        <item itemvalue="Application.ReceiveDataComPort" />
+-        <item itemvalue="Application.SerialComPort" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -156,7 +164,8 @@
+       <workItem from="1587285744715" duration="4138000" />
+       <workItem from="1588619631914" duration="678000" />
+       <workItem from="1588756441245" duration="1179000" />
+-      <workItem from="1588961653283" duration="13811000" />
++      <workItem from="1588961653283" duration="20301000" />
++      <workItem from="1589190140986" duration="29671000" />
+     </task>
+     <task id="LOCAL-00001" summary="all">
+       <created>1585252951588</created>
+@@ -186,27 +195,40 @@
+       <option name="project" value="LOCAL" />
+       <updated>1588964359883</updated>
+     </task>
+-    <option name="localTasksCounter" value="5" />
++    <task id="LOCAL-00005" summary="approach send data from com port">
++      <created>1589010530086</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1589010530086</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="2" />
+   </component>
+   <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="all" />
+     <MESSAGE value="decompose on methods" />
+     <MESSAGE value="receive data from com port" />
+-    <option name="LAST_COMMIT_MESSAGE" value="receive data from com port" />
++    <MESSAGE value="approach send data from com port" />
++    <option name="LAST_COMMIT_MESSAGE" value="approach send data from com port" />
+   </component>
+   <component name="WindowStateProjectService">
++    <state x="426" y="108" key="#Inspections" timestamp="1589235039673">
++      <screen x="0" y="0" width="1600" height="860" />
++    </state>
++    <state x="426" y="108" key="#Inspections/0.0.1600.860@0.0.1600.860" timestamp="1589235039673" />
+     <state x="530" y="188" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog" timestamp="1585166976349">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+     <state x="530" y="188" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1600.860@0.0.1600.860" timestamp="1585166976349" />
+-    <state x="605" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1585252057705">
++    <state x="605" y="139" key="#com.intellij.ide.util.MemberChooser" timestamp="1589040951843">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state x="605" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1585252057705" />
++    <state x="605" y="139" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1589040951843" />
+     <state x="118" y="178" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1585231012963">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+@@ -219,10 +241,10 @@
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+     <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1585903837216" />
+-    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1588964356977">
++    <state x="392" y="0" key="CommitChangelistDialog2" timestamp="1589010525839">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1588964356977" />
++    <state x="392" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1589010525839" />
+     <state x="595" y="163" key="FileChooserDialogImpl" timestamp="1586881513375">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+@@ -231,50 +253,54 @@
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1584973998021" />
+-    <state width="1557" height="140" key="GridCell.Tab.0.bottom" timestamp="1589009905900">
++    <state width="1557" height="65" key="GridCell.Tab.0.bottom" timestamp="1589311366329">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1557" height="140" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
+-    <state width="1557" height="140" key="GridCell.Tab.0.center" timestamp="1589009905900">
++    <state width="1557" height="65" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589311366329" />
++    <state width="1557" height="65" key="GridCell.Tab.0.center" timestamp="1589311366329">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1557" height="140" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
+-    <state width="1557" height="140" key="GridCell.Tab.0.left" timestamp="1589009905899">
++    <state width="1557" height="65" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1589311366329" />
++    <state width="1557" height="65" key="GridCell.Tab.0.left" timestamp="1589311366328">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1557" height="140" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589009905899" />
+-    <state width="1557" height="140" key="GridCell.Tab.0.right" timestamp="1589009905900">
++    <state width="1557" height="65" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1589311366328" />
++    <state width="1557" height="65" key="GridCell.Tab.0.right" timestamp="1589311366329">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1557" height="140" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589009905900" />
+-    <state width="1238" height="272" key="GridCell.Tab.1.bottom" timestamp="1585908013376">
++    <state width="1557" height="65" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1589311366329" />
++    <state width="1557" height="275" key="GridCell.Tab.1.bottom" timestamp="1589042139836">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1238" height="272" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1585908013376" />
+-    <state width="1238" height="272" key="GridCell.Tab.1.center" timestamp="1585908013375">
++    <state width="1557" height="275" key="GridCell.Tab.1.bottom/0.0.1600.860@0.0.1600.860" timestamp="1589042139836" />
++    <state width="1557" height="275" key="GridCell.Tab.1.center" timestamp="1589042139836">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1238" height="272" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1585908013375" />
+-    <state width="1238" height="272" key="GridCell.Tab.1.left" timestamp="1585908013375">
++    <state width="1557" height="275" key="GridCell.Tab.1.center/0.0.1600.860@0.0.1600.860" timestamp="1589042139836" />
++    <state width="1557" height="275" key="GridCell.Tab.1.left" timestamp="1589042139836">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1238" height="272" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1585908013375" />
+-    <state width="1238" height="272" key="GridCell.Tab.1.right" timestamp="1585908013376">
++    <state width="1557" height="275" key="GridCell.Tab.1.left/0.0.1600.860@0.0.1600.860" timestamp="1589042139836" />
++    <state width="1557" height="275" key="GridCell.Tab.1.right" timestamp="1589042139836">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state width="1238" height="272" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1585908013376" />
++    <state width="1557" height="275" key="GridCell.Tab.1.right/0.0.1600.860@0.0.1600.860" timestamp="1589042139836" />
+     <state x="330" y="88" key="Maven.ArtifactSearchDialog" timestamp="1585246692387">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+     <state x="330" y="88" key="Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860" timestamp="1585246692387" />
+-    <state x="235" y="59" width="946" height="682" key="SettingsEditor" timestamp="1587289173868">
++    <state x="235" y="59" width="946" height="708" key="SettingsEditor" timestamp="1589189905076">
++      <screen x="0" y="0" width="1600" height="860" />
++    </state>
++    <state x="235" y="59" width="946" height="708" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1589189905076" />
++    <state width="498" height="446" key="SwitcherDM" timestamp="1589305150476">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state x="235" y="59" width="946" height="682" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1587289173868" />
+-    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1588964362224">
++    <state width="498" height="446" key="SwitcherDM/0.0.1600.860@0.0.1600.860" timestamp="1589305150476" />
++    <state x="392" y="166" key="Vcs.Push.Dialog.v2" timestamp="1589010534250">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+-    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1588964362224" />
++    <state x="392" y="166" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1589010534250" />
+     <state x="508" y="257" key="com.intellij.ide.util.TipDialog" timestamp="1586273505744">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+@@ -287,6 +313,10 @@
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+     <state x="364" y="169" width="872" height="554" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1600.860@0.0.1600.860" timestamp="1585165529931" />
++    <state x="506" y="165" width="587" height="530" key="find.popup" timestamp="1589298491207">
++      <screen x="0" y="0" width="1600" height="860" />
++    </state>
++    <state x="506" y="165" width="587" height="530" key="find.popup/0.0.1600.860@0.0.1600.860" timestamp="1589298491207" />
+     <state x="182" y="134" key="new project wizard" timestamp="1588619727523">
+       <screen x="0" y="0" width="1600" height="860" />
+     </state>
+Index: target/classes/fxml/headFormApp.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.Menu?>\r\n<?import javafx.scene.control.MenuBar?>\r\n<?import javafx.scene.control.MenuItem?>\r\n<?import javafx.scene.control.ProgressIndicator?>\r\n<?import javafx.scene.control.SeparatorMenuItem?>\r\n<?import javafx.scene.control.TextArea?>\r\n<?import javafx.scene.control.TextField?>\r\n<?import javafx.scene.image.Image?>\r\n<?import javafx.scene.image.ImageView?>\r\n<?import javafx.scene.layout.AnchorPane?>\r\n<?import javafx.scene.shape.Circle?>\r\n<?import javafx.scene.shape.Line?>\r\n\r\n<AnchorPane id=\"AnchorPane\" maxHeight=\"-Infinity\" maxWidth=\"-Infinity\" minHeight=\"-Infinity\" minWidth=\"-Infinity\" prefHeight=\"450.0\" prefWidth=\"700.0\" style=\"-fx-background-color: WHITE;\" xmlns=\"http://javafx.com/javafx/8.0.241\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"com.saska.stabsputnikapp.controller.HeadController\">\r\n    <children>\r\n        <Button fx:id=\"changesButton\" layoutX=\"203.0\" layoutY=\"55.0\" mnemonicParsing=\"false\" prefHeight=\"25.0\" prefWidth=\"73.0\" text=\"Apply\" />\r\n        <Label layoutX=\"20.0\" layoutY=\"35.0\" text=\"Rotation angle:\" textOverrun=\"CENTER_ELLIPSIS\" />\r\n        <TextField fx:id=\"angleInput\" cache=\"true\" layoutX=\"20.0\" layoutY=\"55.0\" prefHeight=\"25.0\" prefWidth=\"172.0\" promptText=\"Input\" />\r\n        <MenuBar layoutY=\"2.0\" prefHeight=\"25.0\" prefWidth=\"700.0\" style=\"-fx-background-color: mediumslateblue;\">\r\n            <menus>\r\n                <Menu mnemonicParsing=\"false\" text=\"File\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"New\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Open…\" />\r\n                        <Menu mnemonicParsing=\"false\" text=\"Open Recent\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Close\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Save\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Save As…\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Revert\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Preferences…\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Quit\" />\r\n                    </items>\r\n                </Menu>\r\n                <Menu mnemonicParsing=\"false\" text=\"Edit\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Undo\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Redo\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Cut\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Copy\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Paste\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Delete\" />\r\n                        <SeparatorMenuItem mnemonicParsing=\"false\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Select All\" />\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"Unselect All\" />\r\n                    </items>\r\n                </Menu>\r\n                <Menu mnemonicParsing=\"false\" text=\"Help\">\r\n                    <items>\r\n                        <MenuItem mnemonicParsing=\"false\" text=\"About MyHelloApp\" />\r\n                    </items>\r\n                </Menu>\r\n            </menus>\r\n        </MenuBar>\r\n\r\n        <TextArea fx:id=\"dataComPort\" layoutX=\"20.0\" layoutY=\"115.0\" prefHeight=\"270.0\" prefWidth=\"254.0\" />\r\n        <ImageView fitHeight=\"338.0\" fitWidth=\"381.0\" layoutX=\"304.0\" layoutY=\"67.0\" pickOnBounds=\"true\" preserveRatio=\"true\">\r\n            <image>\r\n                <Image url=\"@/images/radian.png\" />\r\n            </image>\r\n        </ImageView>\r\n        <Label layoutX=\"93.0\" layoutY=\"97.0\" text=\"Data from COM port\" textAlignment=\"CENTER\" textOverrun=\"CENTER_ELLIPSIS\" />\r\n      <Circle centerX=\"-2.0\" centerY=\"-3.0\" fill=\"DODGERBLUE\" layoutX=\"474.0\" layoutY=\"236.0\" radius=\"17.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" />\r\n      <ProgressIndicator fx:id=\"progressData\" layoutX=\"85.0\" layoutY=\"406.0\" prefHeight=\"34.0\" prefWidth=\"45.0\" progress=\"0.0\" />\r\n        <Button fx:id=\"writeDataInFile\" layoutX=\"20.0\" layoutY=\"405.0\" mnemonicParsing=\"false\" text=\"Receive\" />\r\n        <Line fx:id=\"line\" endY=\"-9.0\" fill=\"#eb6464\" layoutX=\"472.0\" layoutY=\"233.0\" strokeLineCap=\"ROUND\" strokeWidth=\"6.0\" />\r\n      <Circle centerX=\"-2.0\" centerY=\"-3.0\" fill=\"#605bdd\" layoutX=\"474.0\" layoutY=\"236.0\" radius=\"17.0\" stroke=\"BLACK\" strokeType=\"INSIDE\" />\r\n      <TextField fx:id=\"inputNewSpeed\" layoutX=\"126.0\" layoutY=\"408.0\" prefHeight=\"26.0\" prefWidth=\"132.0\" promptText=\"input new speed\" />\r\n    </children>\r\n</AnchorPane>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- target/classes/fxml/headFormApp.fxml	(revision a4bfbd0915b5a3b5450e2f93b401bf91c64a0d40)
++++ target/classes/fxml/headFormApp.fxml	(date 1589301945294)
+@@ -5,7 +5,6 @@
+ <?import javafx.scene.control.Menu?>
+ <?import javafx.scene.control.MenuBar?>
+ <?import javafx.scene.control.MenuItem?>
+-<?import javafx.scene.control.ProgressIndicator?>
+ <?import javafx.scene.control.SeparatorMenuItem?>
+ <?import javafx.scene.control.TextArea?>
+ <?import javafx.scene.control.TextField?>
+@@ -15,7 +14,7 @@
+ <?import javafx.scene.shape.Circle?>
+ <?import javafx.scene.shape.Line?>
+ 
+-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/8.0.241" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
++<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: WHITE;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saska.stabsputnikapp.controller.HeadController">
+     <children>
+         <Button fx:id="changesButton" layoutX="203.0" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" text="Apply" />
+         <Label layoutX="20.0" layoutY="35.0" text="Rotation angle:" textOverrun="CENTER_ELLIPSIS" />
+@@ -60,18 +59,20 @@
+             </menus>
+         </MenuBar>
+ 
+-        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="115.0" prefHeight="270.0" prefWidth="254.0" />
++        <TextArea fx:id="dataComPort" layoutX="20.0" layoutY="153.0" prefHeight="97.0" prefWidth="256.0" promptText="receive revolution cooler" />
+         <ImageView fitHeight="338.0" fitWidth="381.0" layoutX="304.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+             <image>
+-                <Image url="@/images/radian.png" />
++                <Image url="/images/radian.png"/>
+             </image>
+         </ImageView>
+-        <Label layoutX="93.0" layoutY="97.0" text="Data from COM port" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+       <Circle centerX="-2.0" centerY="-3.0" fill="DODGERBLUE" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+-      <ProgressIndicator fx:id="progressData" layoutX="85.0" layoutY="406.0" prefHeight="34.0" prefWidth="45.0" progress="0.0" />
+-        <Button fx:id="writeDataInFile" layoutX="20.0" layoutY="405.0" mnemonicParsing="false" text="Receive" />
++        <Button fx:id="setNewSpeed" layoutX="20.0" layoutY="358.0" mnemonicParsing="false" text="Revolutions" />
+         <Line fx:id="line" endY="-9.0" fill="#eb6464" layoutX="472.0" layoutY="233.0" strokeLineCap="ROUND" strokeWidth="6.0" />
+       <Circle centerX="-2.0" centerY="-3.0" fill="#605bdd" layoutX="474.0" layoutY="236.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+-      <TextField fx:id="inputNewSpeed" layoutX="126.0" layoutY="408.0" prefHeight="26.0" prefWidth="132.0" promptText="input new speed" />
++      <TextField fx:id="inputNewSpeed" layoutX="106.0" layoutY="357.0" prefHeight="26.0" prefWidth="172.0" promptText="input new speed" />
++      <TextArea fx:id="resultWrite" layoutX="20.0" layoutY="257.0" prefHeight="91.0" prefWidth="256.0" />
++      <Button fx:id="setPoint" layoutX="20.0" layoutY="397.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="Set point" />
++      <TextField fx:id="inputSetPoint" layoutX="106.0" layoutY="396.0" prefHeight="26.0" prefWidth="172.0" promptText="input setpoint" />
++      <Button fx:id="showRevolution" layoutX="18.0" layoutY="120.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="256.0" text="show revolution" />
+     </children>
+ </AnchorPane>
+Index: src/main/java/com/saska/stabsputnikapp/controller/HeadController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.saska.stabsputnikapp.controller;\r\n\r\nimport javafx.application.Platform;\r\nimport javafx.fxml.FXML;\r\nimport javafx.scene.control.Button;\r\nimport javafx.scene.control.TextArea;\r\nimport javafx.scene.control.TextField;\r\nimport javafx.scene.control.*;\r\nimport javafx.scene.paint.Color;\r\nimport javafx.scene.shape.Line;\r\nimport jssc.*;\r\n\r\nimport javax.swing.*;\r\nimport java.awt.*;\r\nimport java.io.FileReader;\r\nimport java.io.FileWriter;\r\nimport java.io.IOException;\r\nimport java.net.URL;\r\nimport java.util.ResourceBundle;\r\nimport java.util.Scanner;\r\nimport java.util.regex.Pattern;\r\n\r\npublic class HeadController {\r\n\r\n    public static SerialPort serialPort;\r\n    public final String FILEWITHDATAFROMCOMPORT = \"src/main/resources/txtfiles/ReceiveData.txt\";\r\n    public static final String FILE = \"src/main/resources/txtfiles/SerialReceive.txt\";\r\n    double beforeBx = ElementBx(parseFileReader(fileReader()));\r\n    double beforeBy = ElementBy(parseFileReader(fileReader()));\r\n    @FXML\r\n    private ResourceBundle resources;\r\n    @FXML\r\n    private URL location;\r\n    @FXML\r\n    private Line line;\r\n    @FXML\r\n    private Button changesButton;\r\n    @FXML\r\n    private TextField angleInput;\r\n    @FXML\r\n    private TextArea dataComPort;\r\n    @FXML\r\n    private Button writeDataInFile;\r\n    @FXML\r\n    private ProgressIndicator progressData;\r\n    @FXML\r\n    private Button setNewSpeed;\r\n    @FXML\r\n    private TextField inputNewSpeed;\r\n\r\n    public HeadController() throws IOException {\r\n    }\r\n\r\n    public StringBuilder fileReader() throws IOException {\r\n        FileReader rFile = new FileReader(FILEWITHDATAFROMCOMPORT);\r\n        Scanner scan = new Scanner(rFile);\r\n        StringBuilder fullFile = new StringBuilder();\r\n        while (scan.hasNext()) {\r\n            fullFile.append(scan.next());\r\n        }\r\n        rFile.close();\r\n        return fullFile;\r\n    }\r\n\r\n    public void initializeComPort() {\r\n        serialPort = new SerialPort(getPort());\r\n        try {\r\n            serialPort.openPort();\r\n            serialPort.setParams(SerialPort.BAUDRATE_9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);\r\n            serialPort.setEventsMask(SerialPort.MASK_RXCHAR);\r\n            serialPort.addEventListener(new EventListener());\r\n        } catch (SerialPortException ex) {\r\n            ex.printStackTrace();\r\n        }\r\n    }\r\n\r\n    public String getPort() {\r\n        String[] portNames = SerialPortList.getPortNames();\r\n        return portNames[0];\r\n    }\r\n\r\n    @SuppressWarnings(\"unchecked\")\r\n    private String requestPort() {\r\n        JComboBox<String> portNameSelector = new JComboBox<>();\r\n        portNameSelector.setModel(new DefaultComboBoxModel<String>());\r\n        String[] portNames;\r\n        portNames = SerialPortList.getPortNames();\r\n        for (String portName : portNames) {\r\n            portNameSelector.addItem(portName);\r\n        }\r\n        if (portNameSelector.getItemCount() == 0) {\r\n            JOptionPane.showMessageDialog(null, \"Cannot find any serial port\", \"Error\", JOptionPane.ERROR_MESSAGE);\r\n            System.exit(1);\r\n        }\r\n        JPanel panel = new JPanel();\r\n        panel.setLayout(new GridBagLayout());\r\n        panel.add(new JLabel(\"Port \"));\r\n        panel.add(portNameSelector);\r\n        if (JOptionPane.showConfirmDialog(null, panel, \"Select the port\", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {\r\n            return portNameSelector.getSelectedItem().toString();\r\n        } else {\r\n            System.exit(0);\r\n        }\r\n        return \"\";\r\n    }\r\n\r\n    private void fileWriter(String buffer) throws IOException {\r\n        FileWriter wFile = new FileWriter(FILE, true);\r\n        wFile.write(buffer);\r\n        wFile.close();\r\n    }\r\n\r\n    public void drawBeforeLine(double beforeBx, double beforeBy) {\r\n        line.setStartX(0);\r\n        line.setStartY(0);\r\n        line.setEndX(beforeBx);\r\n        line.setEndY(beforeBy);\r\n        line.setStrokeWidth(5);\r\n        line.setStroke(Color.MEDIUMAQUAMARINE);\r\n    }\r\n\r\n    public void calculateAndDrawAfterLine(double beforeBx, double beforeBy) {\r\n        double alpha = Math.atan(beforeBy / beforeBx);\r\n        double beta = Double.parseDouble(angleInput.getText());\r\n        double radius = Math.sqrt(Math.pow(beforeBx, 2) + Math.pow(beforeBy, 2));\r\n\r\n        double afterBx = radius * Math.cos(alpha + beta * Math.PI / 180);\r\n        double afterBy = radius * Math.sin(alpha + beta * Math.PI / 180);\r\n\r\n        line.setStartX(0);\r\n        line.setStartY(0);\r\n        line.setEndX(afterBx);\r\n        line.setEndY(afterBy);\r\n        line.setStrokeWidth(5);\r\n        line.setStroke(Color.MEDIUMBLUE);\r\n    }\r\n\r\n    public void warningMessage() {\r\n        Alert alert = new Alert(Alert.AlertType.WARNING);\r\n        alert.setTitle(\"Warning\");\r\n        alert.setHeaderText(\"Empty field Rotation angle\");\r\n        alert.setContentText(\"Enter the number in the angle rotation field\");\r\n        alert.showAndWait();\r\n    }\r\n\r\n    private String[] parseFileReader(StringBuilder fullFile) {\r\n        String[] numbers = fullFile.toString().replace(\"[\", \"\").replace(\"]\", \"\").split(\",\");\r\n        return numbers;\r\n    }\r\n\r\n    public double ElementBx(String[] numbers) {\r\n        double Bx = Double.parseDouble(numbers[0]);\r\n        return Bx;\r\n    }\r\n\r\n    public double ElementBy(String[] numbers) {\r\n        double By = Double.parseDouble(numbers[1]);\r\n        return By;\r\n    }\r\n\r\n    public void setDataInTextField(double Bx, double By) {\r\n        dataComPort.setText(\"Bx: \" + Bx + \"\\n\" + \"By: \" + By);\r\n    }\r\n\r\n    private void validationAngleInput() {\r\n        Pattern p = Pattern.compile(\"(\\\\d+\\\\.?\\\\d*)?\");\r\n        angleInput.textProperty().addListener((observable, oldValue, newValue) -> {\r\n            if (!p.matcher(newValue).matches()) angleInput.setText(oldValue);\r\n        });\r\n    }\r\n\r\n    private class EventListener implements SerialPortEventListener {\r\n        public void serialEvent(SerialPortEvent event) {\r\n            if (event.isRXCHAR() && event.getEventValue() > 0) {\r\n                try {\r\n                    String data = serialPort.readString(event.getEventValue());\r\n                    System.out.println(inputNewSpeed.getText());\r\n                    serialPort.writeByte((byte)1);\r\n                    fileWriter(data);\r\n                    outputDataInTextField(data);\r\n                } catch (SerialPortException | IOException ex) {\r\n                    System.out.println(ex);\r\n                }\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n\r\n    public void outputDataInTextField(String data) {\r\n        Platform.runLater(() ->\r\n                dataComPort.appendText(String.valueOf(data)));\r\n    }\r\n\r\n    @FXML\r\n    void initialize() {\r\n\r\n        validationAngleInput();\r\n        requestPort();\r\n\r\n        writeDataInFile.setOnAction(actionEvent -> {\r\n            initializeComPort();\r\n        });\r\n\r\n        changesButton.setOnAction(actionEvent -> {\r\n            if (angleInput.getText().isEmpty()) {\r\n                warningMessage();\r\n            } else {\r\n                calculateAndDrawAfterLine(beforeBx, beforeBy);\r\n            }\r\n        });\r\n    }\r\n\r\n    @Override\r\n    public String toString() {\r\n        return \"MainController {\" +\r\n                \"resources=\" + resources +\r\n                \", location=\" + location +\r\n                \", line=\" + line +\r\n                \", changesButton=\" + changesButton +\r\n                \", angleInput=\" + angleInput +\r\n                \", dataComPort=\" + dataComPort +\r\n                '}';\r\n    }\r\n\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/saska/stabsputnikapp/controller/HeadController.java	(revision a4bfbd0915b5a3b5450e2f93b401bf91c64a0d40)
++++ src/main/java/com/saska/stabsputnikapp/controller/HeadController.java	(date 1589311525612)
+@@ -22,9 +22,9 @@
+ 
+ public class HeadController {
+ 
++    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
+     public static SerialPort serialPort;
+     public final String FILEWITHDATAFROMCOMPORT = "src/main/resources/txtfiles/ReceiveData.txt";
+-    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
+     double beforeBx = ElementBx(parseFileReader(fileReader()));
+     double beforeBy = ElementBy(parseFileReader(fileReader()));
+     @FXML
+@@ -40,13 +40,22 @@
+     @FXML
+     private TextArea dataComPort;
+     @FXML
+-    private Button writeDataInFile;
++    private Button generalButton;
+     @FXML
+     private ProgressIndicator progressData;
+     @FXML
+     private Button setNewSpeed;
+     @FXML
+     private TextField inputNewSpeed;
++    @FXML
++    private TextArea resultWrite;
++    @FXML
++    private TextField inputSetPoint;
++    @FXML
++    private Button setPoint;
++    @FXML
++    private Button showRevolution;
++
+ 
+     public HeadController() throws IOException {
+     }
+@@ -62,6 +71,18 @@
+         return fullFile;
+     }
+ 
++    @Override
++    public String toString() {
++        return "MainController {" +
++                "resources=" + resources +
++                ", location=" + location +
++                ", line=" + line +
++                ", changesButton=" + changesButton +
++                ", angleInput=" + angleInput +
++                ", dataComPort=" + dataComPort +
++                '}';
++    }
++
+     public void initializeComPort() {
+         serialPort = new SerialPort(getPort());
+         try {
+@@ -80,7 +101,7 @@
+     }
+ 
+     @SuppressWarnings("unchecked")
+-    private String requestPort() {
++    private void requestPort() {
+         JComboBox<String> portNameSelector = new JComboBox<>();
+         portNameSelector.setModel(new DefaultComboBoxModel<String>());
+         String[] portNames;
+@@ -97,11 +118,10 @@
+         panel.add(new JLabel("Port "));
+         panel.add(portNameSelector);
+         if (JOptionPane.showConfirmDialog(null, panel, "Select the port", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
+-            return portNameSelector.getSelectedItem().toString();
++            portNameSelector.getSelectedItem().toString();
+         } else {
+             System.exit(0);
+         }
+-        return "";
+     }
+ 
+     private void fileWriter(String buffer) throws IOException {
+@@ -143,6 +163,7 @@
+         alert.showAndWait();
+     }
+ 
++
+     private String[] parseFileReader(StringBuilder fullFile) {
+         String[] numbers = fullFile.toString().replace("[", "").replace("]", "").split(",");
+         return numbers;
+@@ -169,60 +190,67 @@
+         });
+     }
+ 
+-    private class EventListener implements SerialPortEventListener {
++    public void outputDataInTextField(String data) {
++        Platform.runLater(() ->
++                dataComPort.appendText(String.valueOf(data)));
++    }
++
++    public void resultInputWrite(Boolean resultInput) {
++        Platform.runLater(() ->
++                resultWrite.appendText(String.valueOf(resultInput)));
++    }
++
++    public class EventListener implements SerialPortEventListener {
+         public void serialEvent(SerialPortEvent event) {
+             if (event.isRXCHAR() && event.getEventValue() > 0) {
+                 try {
+-                    String data = serialPort.readString(event.getEventValue());
+-                    System.out.println(inputNewSpeed.getText());
+-                    serialPort.writeByte((byte)1);
+-                    fileWriter(data);
+-                    outputDataInTextField(data);
++                    String data = serialPort.readString(event.getEventValue()); // read com port
++                    fileWriter(data); // write in file read com port
++                    outputDataInTextField(data); // show data with com port
+                 } catch (SerialPortException | IOException ex) {
+                     System.out.println(ex);
+                 }
+             }
+-
+         }
+     }
+ 
+-
+-    public void outputDataInTextField(String data) {
+-        Platform.runLater(() ->
+-                dataComPort.appendText(String.valueOf(data)));
+-    }
++        public void algorithmPID() {
++            MiniPID miniPid = new MiniPID(0.25, 0.01, 0.4);
++        }
+ 
+-    @FXML
+-    void initialize() {
+-
+-        validationAngleInput();
+-        requestPort();
++        @FXML
++        void initialize() {
++            validationAngleInput();
++            requestPort();
+ 
+-        writeDataInFile.setOnAction(actionEvent -> {
+-            initializeComPort();
+-        });
++            setPoint.setOnAction(action -> {
++                try {
++                    resultWrite.setText("Setpoint: ");
++                    resultInputWrite(serialPort.writeString("set_point" + inputSetPoint.getText()));
++                } catch (SerialPortException e) {
++                    e.printStackTrace();
++                }
++            });
++
++            setNewSpeed.setOnAction(action -> {
++                try {
++                    resultWrite.setText("New revolution: ");
++                    resultInputWrite(serialPort.writeString("new_speed" + inputNewSpeed.getText()));
++                } catch (SerialPortException e) {
++                    e.printStackTrace();
++                }
++            });
++
++            showRevolution.setOnAction(actionEvent -> initializeComPort());
+ 
+-        changesButton.setOnAction(actionEvent -> {
+-            if (angleInput.getText().isEmpty()) {
+-                warningMessage();
+-            } else {
+-                calculateAndDrawAfterLine(beforeBx, beforeBy);
+-            }
+-        });
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return "MainController {" +
+-                "resources=" + resources +
+-                ", location=" + location +
+-                ", line=" + line +
+-                ", changesButton=" + changesButton +
+-                ", angleInput=" + angleInput +
+-                ", dataComPort=" + dataComPort +
+-                '}';
+-    }
+-
++            changesButton.setOnAction(actionEvent -> {
++                if (angleInput.getText().isEmpty()) {
++                    warningMessage();
++                } else {
++                    calculateAndDrawAfterLine(beforeBx, beforeBy);
++                }
++            });
++        }
+ }
+ 
+ 

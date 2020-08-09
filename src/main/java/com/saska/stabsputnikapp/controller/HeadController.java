@@ -43,6 +43,7 @@ public class HeadController {
     final int WINDOW_SIZE = 77;
     EventListener eventListener = new EventListener();
     CommunicateFile communicate = new CommunicateFile();
+    RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
 
     @FXML
     private LineChart<String, Double> lineChart;
@@ -81,16 +82,16 @@ public class HeadController {
     private JFXTextField inputSetPoint;
 
     @FXML
-    private Button buildGraph;
+    private Button buildChart;
 
     @FXML
     private Button copy;
 
     @FXML
-    private JFXToggleButton openclose;
+    private JFXToggleButton openOrClose;
 
     @FXML
-    private JFXButton clearGraph;
+    private JFXButton clearChart;
 
     public void initializeComPort() {
         serialPort = new SerialPort(getPort());
@@ -141,10 +142,24 @@ public class HeadController {
         alert.showAndWait();
     }
 
+    public void errorMessage() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("No receive data");
+        alert.showAndWait();
+    }
+
     private void validationSetpoint() {
         Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
         inputSetPoint.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches()) inputSetPoint.setText(oldValue);
+        });
+        requiredInputValidator.setMessage("Cannot be empty");
+        inputSetPoint.getValidators().add(requiredInputValidator);
+        inputSetPoint.focusedProperty().addListener((o, oldVal, newVal) -> {
+            if (!newVal) {
+                inputSetPoint.validate();
+            }
         });
     }
 
@@ -230,6 +245,18 @@ public class HeadController {
         }, 0, 100, TimeUnit.MILLISECONDS);
     }
 
+    public void openConnectionReadSerialPort() {
+        initializeComPort();
+        openOrClose.setText("Open port");
+        openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be closed"));
+    }
+
+    public void closeConnectionReadSerialPort() {
+        eventListener.stop();
+        openOrClose.setText("Close port");
+        openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
+    }
+
     @FXML
     private void onCopy() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
@@ -243,30 +270,18 @@ public class HeadController {
                 resultWrite.appendText(String.valueOf(resultInput)));
     }
 
-    @FXML
-    void initialize() {
-        RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
-        requiredInputValidator.setMessage("Cannot be empty");
+    public void validateAllField() {
         validationkP();
         validationkI();
         validationkD();
         validationSetpoint();
-        requestPort();
+    }
+
+    @FXML
+    void initialize() {
+        validateAllField();
+        //requestPort();
         countPID();
-        inputSetPoint.getValidators().add(requiredInputValidator);
-        inputSetPoint.focusedProperty().addListener((o, oldVal, newVal) -> {
-            if (!newVal) {
-                inputSetPoint.validate();
-            }
-        });
-
-        clearGraph.setOnAction(clear -> {
-            lineChart.getData().clear();
-        });
-
-        copy.setOnAction(copy -> {
-            onCopy();
-        });
 
         setPoint.setOnAction(action -> {
             if (inputSetPoint.getText().isEmpty()) {
@@ -296,6 +311,14 @@ public class HeadController {
             }
         });
 
+        buildChart.setOnAction(build ->  {
+            if (parseData == null) {
+                errorMessage();
+            } else {
+                buildChart();
+            }
+        });
+
         setKoeffI.setOnAction(action -> {
             if (kI.getText().isEmpty()) {
                 warningMessage();
@@ -321,21 +344,18 @@ public class HeadController {
                 }
             }
         });
-        buildGraph.setOnAction(plot -> {
-            buildChart();
-        });
 
-        openclose.setOnAction(event -> {
-            if (openclose.isSelected()) {
-                initializeComPort();
-                openclose.setText("Open port");
-                openclose.setTooltip(new Tooltip("Click and the serial\n" + "port will be closed"));
+        openOrClose.setOnAction(event -> {
+            if (openOrClose.isSelected()) {
+                openConnectionReadSerialPort();
             } else {
-                eventListener.stop();
-                openclose.setText("Close port");
-                openclose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
+                closeConnectionReadSerialPort();
             }
         });
+
+        clearChart.setOnAction(clear -> lineChart.getData().clear());
+        copy.setOnAction(copy -> onCopy());
+
     }
 }
 

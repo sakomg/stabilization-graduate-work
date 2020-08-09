@@ -19,8 +19,10 @@ public class EventListener implements SerialPortEventListener {
     public static String data;
     public static SerialPort serialPort;
     public static String[] parseData;
+
     @FXML
     public JFXTextArea dataComPort;
+
     CommunicateFile communicate = new CommunicateFile();
 
     public void serialEvent(SerialPortEvent event) {
@@ -29,7 +31,6 @@ public class EventListener implements SerialPortEventListener {
                 Thread.sleep(300);
                 data = serialPort.readString(event.getEventValue());
                 parseData = data.split(" ");
-                System.out.println("inp: " + parseData[0] + " set: " + parseData[1] + " out: " + parseData[2]);
                 outputDataInTextField("inp: " + parseData[0] + " set: " + parseData[1] + " out: " + parseData[2] + "\n");
                 communicate.fileWriter(data, FILE);
                 communicate.logFileWriter(data, LOGFILE);
