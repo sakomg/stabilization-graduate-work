@@ -66,34 +66,28 @@ public class SimplyPID {
         return kP;
     }
 
-
     public void setkP(double kP) {
         this.kP = kP;
         reset();
     }
 
-
     public double getkI() {
         return kI;
     }
-
 
     public void setkI(double kI) {
         this.kI = kI;
         reset();
     }
 
-
     public double getkD() {
         return kD;
     }
-
 
     public void setkD(double kD) {
         this.kD = kD;
         reset();
     }
-
 
     public double getSetPoint() {
         return setPoint;

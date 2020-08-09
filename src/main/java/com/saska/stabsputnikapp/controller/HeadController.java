@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.validation.RequiredFieldValidator;
 import com.saska.stabsputnikapp.chart.BuildLineChart;
+import com.saska.stabsputnikapp.hardware.CheckIncludePort;
 import com.saska.stabsputnikapp.hardware.EventListener;
 import com.saska.stabsputnikapp.hardware.InitSerialPort;
 import com.saska.stabsputnikapp.pid.SimplyPID;
@@ -15,13 +16,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import jssc.SerialPortException;
-import jssc.SerialPortList;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.IOException;
 import java.util.regex.Pattern;
 
@@ -38,6 +34,7 @@ public class HeadController {
     RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
     BuildLineChart buildLineChart = new BuildLineChart();
     InitSerialPort init = new InitSerialPort();
+    CheckIncludePort checkPort = new CheckIncludePort();
 
     @FXML
     private Button setKoeffP;
@@ -77,30 +74,6 @@ public class HeadController {
 
     @FXML
     private JFXButton clearChart;
-
-    @SuppressWarnings("unchecked")
-    public void requestPort() {
-        JComboBox<String> portNameSelector = new JComboBox<>();
-        portNameSelector.setModel(new DefaultComboBoxModel<>());
-        String[] portNames;
-        portNames = SerialPortList.getPortNames();
-        for (String portName : portNames) {
-            portNameSelector.addItem(portName);
-        }
-        if (portNameSelector.getItemCount() == 0) {
-            JOptionPane.showMessageDialog(null, "Cannot find any serial port", "Error", JOptionPane.ERROR_MESSAGE);
-            System.exit(1);
-        }
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        panel.add(new JLabel("Port "));
-        panel.add(portNameSelector);
-        if (JOptionPane.showConfirmDialog(null, panel, "Select the port", JOptionPane.OK_CANCEL_OPTION) == JOptionPane.OK_OPTION) {
-            portNameSelector.getSelectedItem();
-        } else {
-            System.exit(0);
-        }
-    }
 
     public void warningMessage() {
         Alert alert= new Alert(Alert.AlertType.WARNING);
@@ -182,14 +155,6 @@ public class HeadController {
         openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
     }
 
-    public void onCopy() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent content = new ClipboardContent();
-        if (eventListener.dataComPort != null)
-            content.putString(eventListener.dataComPort.getText().trim());
-        clipboard.setContent(content);
-    }
-
     public void resultInputWrite(Boolean resultInput) {
         Platform.runLater(() ->
                 resultWrite.appendText(String.valueOf(resultInput)));
@@ -205,7 +170,7 @@ public class HeadController {
     @FXML
     void initialize() throws IOException {
         validateAllField();
-        //requestPort();
+        //checkPort.requestPort();
         countPID();
 
         setPoint.setOnAction(action -> {
@@ -279,7 +244,7 @@ public class HeadController {
         });
 
         clearChart.setOnAction(clear -> buildLineChart.clearChart());
-        copy.setOnAction(copy -> onCopy());
+        copy.setOnAction(copy -> eventListener.onCopy());
     }
 }
 

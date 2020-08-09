@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXTextArea;
 import com.saska.stabsputnikapp.receivingdata.CommunicateFile;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import jssc.SerialPort;
 import jssc.SerialPortEvent;
 import jssc.SerialPortEventListener;
@@ -39,6 +41,14 @@ public class EventListener implements SerialPortEventListener {
         }
     }
 
+    public void onCopy() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+        if (dataComPort != null)
+            content.putString(dataComPort.getText().trim());
+        clipboard.setContent(content);
+    }
+
     public void outputDataInTextField(String data) {
         Platform.runLater(() ->
                 dataComPort.appendText(String.valueOf(data)));
@@ -54,5 +64,4 @@ public class EventListener implements SerialPortEventListener {
             }
         }
     }
-
 }
