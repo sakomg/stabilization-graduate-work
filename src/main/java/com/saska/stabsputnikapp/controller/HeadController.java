@@ -5,15 +5,12 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.saska.stabsputnikapp.chart.BuildLineChart;
 import com.saska.stabsputnikapp.hardware.EventListener;
 import com.saska.stabsputnikapp.pid.SimplyPID;
 import com.saska.stabsputnikapp.receivingdata.CommunicateFile;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
@@ -26,11 +23,6 @@ import jssc.SerialPortList;
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import static com.saska.stabsputnikapp.hardware.EventListener.parseData;
@@ -41,19 +33,10 @@ public class HeadController {
     public static final String FILESET = "src/main/resources/txt/ReceiveSetpoint.txt";
     public static final String LOGFILESET = "src/main/resources/txt/LogSetpoint.txt";
     private static final String FILE_OUTPUT = "src/main/resources/txt/Output.txt";
-    final int WINDOW_SIZE = 77;
     EventListener eventListener = new EventListener();
     CommunicateFile communicate = new CommunicateFile();
     RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
-
-    @FXML
-    private LineChart<String, Double> lineChart;
-
-    @FXML
-    private CategoryAxis xAxis;
-
-    @FXML
-    private NumberAxis yAxis;
+    BuildLineChart buildLineChart = new BuildLineChart();
 
     @FXML
     private Button setKoeffP;
@@ -203,49 +186,6 @@ public class HeadController {
         }
     }
 
-    public void buildChart() {
-        xAxis.setLabel("time");
-        xAxis.setAnimated(false);
-        yAxis.setLabel("frequency");
-        yAxis.setAnimated(false);
-        lineChart.setAnimated(false);
-
-        XYChart.Series<String, Double> inputLine = new XYChart.Series<>();
-        XYChart.Series<String, Double> outputLine = new XYChart.Series<>();
-        XYChart.Series<String, Double> setLine = new XYChart.Series<>();
-
-        inputLine.setName("input");
-        inputLine.getClass().getResource("stylesheet.css");
-        outputLine.setName("output");
-        outputLine.getClass().getResource("stylesheet.css");
-        setLine.setName("setpoint");
-
-        lineChart.getData().add(inputLine);
-        lineChart.getData().add(outputLine);
-        lineChart.getData().add(setLine);
-        lineChart.setCreateSymbols(false);
-
-        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss:SSS");
-        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-        scheduledExecutorService.scheduleAtFixedRate(() -> {
-            Platform.runLater(() -> {
-                Date now = new Date();
-
-                inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[0].trim())));
-                if (inputLine.getData().size() > WINDOW_SIZE)
-                    inputLine.getData().remove(0);
-
-                setLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[1].trim())));
-                if (setLine.getData().size() > WINDOW_SIZE)
-                    setLine.getData().remove(0);
-
-                outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[2].trim())));
-                if (outputLine.getData().size() > WINDOW_SIZE)
-                    outputLine.getData().remove(0);
-            });
-        }, 0, 100, TimeUnit.MILLISECONDS);
-    }
-
     public void openConnectionReadSerialPort() {
         initializeComPort();
         openOrClose.setText("Open port");
@@ -258,11 +198,11 @@ public class HeadController {
         openOrClose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
     }
 
-    @FXML
     private void onCopy() {
         final Clipboard clipboard = Clipboard.getSystemClipboard();
         final ClipboardContent content = new ClipboardContent();
-        content.putString(eventListener.dataComPort.getText().trim());
+        if (eventListener.dataComPort != null)
+            content.putString(eventListener.dataComPort.getText().trim());
         clipboard.setContent(content);
     }
 
@@ -312,11 +252,11 @@ public class HeadController {
             }
         });
 
-        buildChart.setOnAction(build ->  {
+        buildChart.setOnAction(build -> {
             if (parseData == null) {
                 errorMessage();
             } else {
-                buildChart();
+                buildLineChart.buildChart();
             }
         });
 
@@ -354,9 +294,8 @@ public class HeadController {
             }
         });
 
-        clearChart.setOnAction(clear -> lineChart.getData().clear());
+        clearChart.setOnAction(clear -> buildLineChart.clearChart());
         copy.setOnAction(copy -> onCopy());
-
     }
 }
 

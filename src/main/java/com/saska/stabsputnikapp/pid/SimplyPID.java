@@ -3,7 +3,7 @@ package com.saska.stabsputnikapp.pid;
 public class SimplyPID {
 
     private double setPoint;
-    private double kP,kI,kD;
+    private double kP, kI, kD;
 
     private double minLimit = Double.NaN, maxLimit = Double.NaN;
 
@@ -20,7 +20,7 @@ public class SimplyPID {
 
     public double getOutput(final double currentTime, final double currentValue) {
         final double error = setPoint - currentValue;
-        final double dt = (previousTime != Double.NaN) ? (double)(currentTime - previousTime) : 0;
+        final double dt = (previousTime != Double.NaN) ? (double) (currentTime - previousTime) : 0;
 
         final double derivativeError = (dt != 0) ? ((error - lastError) / dt) : 0;
         integralError += error * dt;
@@ -38,7 +38,7 @@ public class SimplyPID {
     }
 
 
-    private double checkLimits(final double output){
+    private double checkLimits(final double output) {
         if (!Double.isNaN(minLimit) && output < minLimit)
             return minLimit;
         else if (!Double.isNaN(maxLimit) && output > maxLimit)
@@ -48,10 +48,10 @@ public class SimplyPID {
     }
 
     public void setOuputLimits(final double minLimit, final double maxLimit) {
-        if(minLimit < maxLimit) {
+        if (minLimit < maxLimit) {
             this.minLimit = minLimit;
             this.maxLimit = maxLimit;
-        }else{
+        } else {
             this.minLimit = maxLimit;
             this.maxLimit = minLimit;
         }
