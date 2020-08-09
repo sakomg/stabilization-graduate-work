@@ -5,35 +5,53 @@
       <artifact name="StabilizationGraduateWork:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/StabilizationGraduateWork_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/ChipView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/SimplyPID.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/SimplyPIDExample.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/experiment.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/LogReceiveData.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/LogSetpoint.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/LogSetpoint.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/ReceiveSetpoint.txt" afterDir="false" />
+    <list default="true" id="efdaa411-ce28-4cc8-a8bd-b4ae4d3ce58d" name="Default Changelist" comment="refactor code">
+      <change afterPath="$PROJECT_DIR$/.idea/StabilizationGraduateWork.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/hardware/EventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/SerialReceive.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/HeadApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/GraphController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/GraphController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/GraphController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/controller/HeadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/graphic.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/graphic.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/CommunicateFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/CommunicateFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/SerialComPort.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/receivingdata/Test3Graph.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/ChipView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/SimplyPID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/saska/stabsputnikapp/pid/SimplyPID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/othertasks/CodeWars/SimplyPIDExample.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/menu.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/experiment.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/graphic.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/headFormApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/LogReceiveData.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/LogReceiveData.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/txtfiles/LogSetpoint.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/txtfiles/LogSetpoint.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/HeadApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController$EventListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/controller/HeadController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort$EventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/ReceiveDataComPort.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/SerialComPort$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/saska/stabsputnikapp/receivingdata/SerialComPort.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/headFormApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Дипломная_работа_Комегунов_2020.docx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,6 +70,13 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\JetBrains\IntelliJ IDEA 2020.1.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1ZWGy3gnUZ77o6g9EhSROujUOVq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -65,11 +90,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Java algorPID/controllersDemo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.32122904" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -80,6 +105,45 @@
   <component name="RunManager" selected="Application.HeadApp">
     <configuration name="ChipView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.ChipView" />
+      <module name="StabilizationGraduateWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.saska.stabsputnikapp.hardware.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CodeWars2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.CodeWars2" />
+      <module name="StabilizationGraduateWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="othertasks.CodeWars.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CodeWars3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.CodeWars3" />
+      <module name="StabilizationGraduateWork" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="othertasks.CodeWars.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ForChildAlgo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.ForChildAlgo" />
       <module name="StabilizationGraduateWork" />
       <extension name="coverage">
         <pattern>
@@ -96,7 +160,7 @@
       <module name="StabilizationGraduateWork" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.saska.stabsputnikapp.*" />
+          <option name="PATTERN" value="com.saska.stabsputnikapp.pid.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -104,41 +168,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.Main" />
-      <module name="StabilizationGraduateWork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="othertasks.CodeWars.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SimplyPIDExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="othertasks.CodeWars.SimplyPIDExample" />
-      <module name="StabilizationGraduateWork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="othertasks.CodeWars.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test3Graph" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.saska.stabsputnikapp.receivingdata.Test3Graph" />
-      <module name="StabilizationGraduateWork" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.saska.stabsputnikapp.receivingdata.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -146,13 +184,14 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.HeadApp" />
-        <item itemvalue="Application.SimplyPIDExample" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CodeWars3" />
+        <item itemvalue="Application.CodeWars2" />
+        <item itemvalue="Application.ForChildAlgo" />
         <item itemvalue="Application.ChipView" />
-        <item itemvalue="Application.Test3Graph" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -168,7 +207,18 @@
       <workItem from="1589671613838" duration="153340000" />
       <workItem from="1590439323414" duration="7299000" />
       <workItem from="1590527764475" duration="230000" />
-      <workItem from="1590537041622" duration="2647000" />
+      <workItem from="1590537041622" duration="45758000" />
+      <workItem from="1591479358987" duration="380000" />
+      <workItem from="1591480885158" duration="2110000" />
+      <workItem from="1593252893128" duration="2050000" />
+      <workItem from="1593268023612" duration="52000" />
+      <workItem from="1594138735939" duration="795000" />
+      <workItem from="1594196724352" duration="6674000" />
+      <workItem from="1594663228051" duration="267000" />
+      <workItem from="1594663587352" duration="5143000" />
+      <workItem from="1594897377474" duration="2050000" />
+      <workItem from="1596736944545" duration="4085000" />
+      <workItem from="1596978581657" duration="10538000" />
     </task>
     <task id="LOCAL-00001" summary="receive and send close">
       <created>1589313485942</created>
@@ -212,11 +262,18 @@
       <option name="project" value="LOCAL" />
       <updated>1590076499161</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add coefficient PID-regulator">
+      <created>1590770613525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1590770613525</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="receive and send close" />
@@ -224,7 +281,8 @@
     <MESSAGE value="ready" />
     <MESSAGE value="add graph" />
     <MESSAGE value="change graph" />
-    <option name="LAST_COMMIT_MESSAGE" value="change graph" />
+    <MESSAGE value="add coefficient PID-regulator" />
+    <option name="LAST_COMMIT_MESSAGE" value="add coefficient PID-regulator" />
   </component>
   <component name="WindowStateProjectService">
     <state x="685" y="292" key="#Notifications" timestamp="1589313430286">
@@ -235,26 +293,42 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="540" y="231" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1600.860@0.0.1600.860" timestamp="1590423027215" />
-    <state x="878" y="170" width="390" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1590422276733">
+    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser" timestamp="1596990630897">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="878" y="170" width="390" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1590422276733" />
+    <state x="878" y="170" width="464" height="585" key="#com.intellij.ide.util.MemberChooser/0.0.1600.860@0.0.1600.860" timestamp="1596990630897" />
     <state x="568" y="224" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1590516672078">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="568" y="224" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1600.860@0.0.1600.860" timestamp="1590516672078" />
-    <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1589969411104">
+    <state x="480" y="165" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591479605735">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1589969411104" />
-    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1590076492675">
+    <state x="480" y="165" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1600.860@0.0.1600.860" timestamp="1591479605735" />
+    <state x="395" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1596980935844">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1590076492675" />
-    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1590442197128">
+    <state x="395" y="354" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1600.860@0.0.1600.860" timestamp="1596980935844" />
+    <state x="578" y="298" width="445" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1596980931611">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1590442197128" />
+    <state x="578" y="298" width="445" height="269" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1600.860@0.0.1600.860" timestamp="1596980931611" />
+    <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1591374645252">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="530" y="180" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1600.860@0.0.1600.860" timestamp="1591374645252" />
+    <state x="546" y="283" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1596991672359">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="546" y="283" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1600.860@0.0.1600.860" timestamp="1596991672359" />
+    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1596992705362">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1600.860@0.0.1600.860" timestamp="1596992705362" />
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1596747655716">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1596747655716" />
     <state x="459" y="172" key="FileDocumentManager.FileCacheConflict" timestamp="1590172158267">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -263,22 +337,22 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="636" y="328" key="Github.ShareDialog/0.0.1600.860@0.0.1600.860" timestamp="1589313398013" />
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom" timestamp="1590537217931">
+    <state width="1557" height="141" key="GridCell.Tab.0.bottom" timestamp="1596992471361">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1590537217931" />
-    <state width="1557" height="120" key="GridCell.Tab.0.center" timestamp="1590537217930">
+    <state width="1557" height="141" key="GridCell.Tab.0.bottom/0.0.1600.860@0.0.1600.860" timestamp="1596992471361" />
+    <state width="1557" height="141" key="GridCell.Tab.0.center" timestamp="1596992471360">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1590537217930" />
-    <state width="1557" height="120" key="GridCell.Tab.0.left" timestamp="1590537217929">
+    <state width="1557" height="141" key="GridCell.Tab.0.center/0.0.1600.860@0.0.1600.860" timestamp="1596992471360" />
+    <state width="1557" height="141" key="GridCell.Tab.0.left" timestamp="1596992471360">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1590537217929" />
-    <state width="1557" height="120" key="GridCell.Tab.0.right" timestamp="1590537217930">
+    <state width="1557" height="141" key="GridCell.Tab.0.left/0.0.1600.860@0.0.1600.860" timestamp="1596992471360" />
+    <state width="1557" height="141" key="GridCell.Tab.0.right" timestamp="1596992471361">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state width="1557" height="120" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1590537217930" />
+    <state width="1557" height="141" key="GridCell.Tab.0.right/0.0.1600.860@0.0.1600.860" timestamp="1596992471361" />
     <state width="1557" height="125" key="GridCell.Tab.1.bottom" timestamp="1590438929261">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -299,14 +373,14 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="330" y="84" key="Maven.ArtifactSearchDialog/0.0.1600.860@0.0.1600.860" timestamp="1589922079813" />
-    <state x="318" y="8" key="SettingsEditor" timestamp="1590516734821">
+    <state x="318" y="8" key="SettingsEditor" timestamp="1596737014350">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="318" y="8" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1590516734821" />
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1590076500852">
+    <state x="318" y="8" key="SettingsEditor/0.0.1600.860@0.0.1600.860" timestamp="1596737014350" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2" timestamp="1590770773124">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1590076500852" />
+    <state x="392" y="162" key="Vcs.Push.Dialog.v2/0.0.1600.860@0.0.1600.860" timestamp="1590770773124" />
     <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589312423514">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -323,18 +397,18 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="579" y="142" key="git4idea.branch.GitSmartOperationDialog/0.0.1600.860@0.0.1600.860" timestamp="1589311609987" />
-    <state x="182" y="90" key="new project wizard" timestamp="1589800225981">
+    <state x="182" y="90" key="new project wizard" timestamp="1596886380653">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="182" y="90" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1589800225981" />
-    <state x="506" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1590421446312">
+    <state x="182" y="90" key="new project wizard/0.0.1600.860@0.0.1600.860" timestamp="1596886380653" />
+    <state x="506" y="187" key="refactoring.ChangeSignatureDialog" timestamp="1591138978480">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="506" y="187" key="refactoring.ChangeSignatureDialog/0.0.1600.860@0.0.1600.860" timestamp="1590421446312" />
-    <state x="456" y="195" key="run.anything.popup" timestamp="1589977001152">
+    <state x="506" y="187" key="refactoring.ChangeSignatureDialog/0.0.1600.860@0.0.1600.860" timestamp="1591138978480" />
+    <state x="456" y="195" key="run.anything.popup" timestamp="1596747571685">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
-    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1589977001152" />
+    <state x="456" y="195" key="run.anything.popup/0.0.1600.860@0.0.1600.860" timestamp="1596747571685" />
     <state x="463" y="180" key="search.everywhere.popup" timestamp="1590012127507">
       <screen x="0" y="0" width="1600" height="860" />
     </state>

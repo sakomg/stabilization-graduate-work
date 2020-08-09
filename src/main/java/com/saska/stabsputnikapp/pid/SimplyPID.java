@@ -1,4 +1,4 @@
-package othertasks.CodeWars;
+package com.saska.stabsputnikapp.pid;
 
 public class SimplyPID {
 

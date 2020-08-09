@@ -1,48 +1,57 @@
 package com.saska.stabsputnikapp.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
 import com.jfoenix.validation.RequiredFieldValidator;
+import com.saska.stabsputnikapp.hardware.EventListener;
+import com.saska.stabsputnikapp.pid.SimplyPID;
+import com.saska.stabsputnikapp.receivingdata.CommunicateFile;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.*;
-import javafx.scene.image.Image;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import jssc.*;
-import othertasks.CodeWars.SimplyPID;
+import jssc.SerialPort;
+import jssc.SerialPortException;
+import jssc.SerialPortList;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DateFormat;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.Scanner;
+import java.util.Date;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
+
+import static com.saska.stabsputnikapp.hardware.EventListener.parseData;
+import static com.saska.stabsputnikapp.hardware.EventListener.serialPort;
 
 public class HeadController {
 
-    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
     public static final String FILESET = "src/main/resources/txtfiles/ReceiveSetpoint.txt";
     public static final String LOGFILESET = "src/main/resources/txtfiles/LogSetpoint.txt";
-    public static final String LOGFILE = "src/main/resources/txtfiles/LogReceiveData.txt";
-    public static SerialPort serialPort;
-    public static String data;
+    final int WINDOW_SIZE = 77;
+    EventListener eventListener = new EventListener();
+    CommunicateFile communicate = new CommunicateFile();
 
     @FXML
-    private JFXTextArea dataComPort;
+    private LineChart<String, Double> lineChart;
+
+    @FXML
+    private CategoryAxis xAxis;
+
+    @FXML
+    private NumberAxis yAxis;
 
     @FXML
     private Button setKoeffP;
@@ -80,56 +89,8 @@ public class HeadController {
     @FXML
     private JFXToggleButton openclose;
 
-    public StringBuilder fileReader() throws IOException {
-        FileReader rFile = new FileReader(FILE);
-        Scanner scan = new Scanner(rFile);
-        StringBuilder fullFile = new StringBuilder();
-        while (scan.hasNextInt()) {
-            fullFile.append(scan.nextInt());
-        }
-        rFile.close();
-        return fullFile;
-    }
-
-    public String readFile() throws IOException {
-        return Files.lines(Paths.get(FILE)).reduce("",(a, b) -> a + "\n" + b).trim();
-    }
-
-    public List<Double> readerOutput() throws FileNotFoundException {
-        File file = new File(FILE);
-        Scanner scanner = new Scanner(file);
-        List<Double> doublesInput = new ArrayList<>();
-        while (scanner.hasNext()) {
-            if (scanner.hasNextDouble()) {
-                doublesInput.add(scanner.nextDouble());
-            } else {
-                scanner.next();
-            }
-        }
-        return doublesInput;
-    }
-
-    public List<Double> readerSetpoint() throws FileNotFoundException {
-        File file = new File(FILESET);
-        Scanner scanner = new Scanner(file);
-        List<Double> doublesOutput = new ArrayList<>();
-        while (scanner.hasNext()) {
-            if (scanner.hasNextDouble()) {
-                doublesOutput.add(scanner.nextDouble());
-            } else {
-                scanner.next();
-            }
-        }
-        return doublesOutput;
-    }
-
     @FXML
-    private void onCopy() {
-        final Clipboard clipboard = Clipboard.getSystemClipboard();
-        final ClipboardContent content = new ClipboardContent();
-        content.putString(dataComPort.getText().trim());
-        clipboard.setContent(content);
-    }
+    private JFXButton clearGraph;
 
     public void initializeComPort() {
         serialPort = new SerialPort(getPort());
@@ -194,15 +155,87 @@ public class HeadController {
         });
     }
 
-    public void stop() {
-        if (serialPort == null) return;
-        if (serialPort.isOpened()) {
-            try {
-                serialPort.closePort();
-            } catch (SerialPortException e) {
-                System.out.println(e.getMessage());
-            }
+    private void validationkI() {
+        Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
+        kI.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!p.matcher(newValue).matches()) kI.setText(oldValue);
+        });
+    }
+
+    private void validationkD() {
+        Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
+        kD.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!p.matcher(newValue).matches()) kD.setText(oldValue);
+        });
+    }
+
+    public void countPID() {
+        double output = 0;
+        double currentValue = 25;
+        SimplyPID pid = new SimplyPID(0, 1.2, 0, 0.025);
+        System.out.print("Time\tSet Point\tCurrent value\tOutput\tError\n");
+
+        for (int i = 0; i < 30; i++) {
+            System.out.printf("%d\t%3.2f\t%3.2f\t%3.2f\t%3.2f\n", i, pid.getSetPoint(), currentValue, output, (pid.getSetPoint() - currentValue));
+
+            if (i == 15)
+                pid.setSetpoint(50);
+
+            output = pid.getOutput(1, currentValue);
+
+            currentValue += output * 1.3 + (Math.random() - .5) * 3;
         }
+    }
+
+    public void buildChart() {
+        xAxis.setLabel("time");
+        xAxis.setAnimated(false);
+        yAxis.setLabel("frequency");
+        yAxis.setAnimated(false);
+        lineChart.setAnimated(false);
+
+        XYChart.Series<String, Double> inputLine = new XYChart.Series<>();
+        XYChart.Series<String, Double> outputLine = new XYChart.Series<>();
+        XYChart.Series<String, Double> setLine = new XYChart.Series<>();
+
+        inputLine.setName("input");
+        inputLine.getClass().getResource("stylesheet.css");
+        outputLine.setName("output");
+        outputLine.getClass().getResource("stylesheet.css");
+        setLine.setName("setpoint");
+
+        lineChart.getData().add(inputLine);
+        lineChart.getData().add(outputLine);
+        lineChart.getData().add(setLine);
+        lineChart.setCreateSymbols(false);
+
+        final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("ss:SSS");
+        ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+        scheduledExecutorService.scheduleAtFixedRate(() -> {
+            Platform.runLater(() -> {
+                Date now = new Date();
+
+                inputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[0].trim())));
+                if (inputLine.getData().size() > WINDOW_SIZE)
+                    inputLine.getData().remove(0);
+
+                setLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[1].trim())));
+                if (setLine.getData().size() > WINDOW_SIZE)
+                    setLine.getData().remove(0);
+
+                outputLine.getData().add(new XYChart.Data<>(simpleDateFormat.format(now), Double.parseDouble(parseData[2].trim())));
+                if (outputLine.getData().size() > WINDOW_SIZE)
+                    outputLine.getData().remove(0);
+            });
+        }, 0, 100, TimeUnit.MILLISECONDS);
+    }
+
+    @FXML
+    private void onCopy() {
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+        content.putString(eventListener.dataComPort.getText().trim());
+        clipboard.setContent(content);
     }
 
     public void resultInputWrite(Boolean resultInput) {
@@ -210,93 +243,29 @@ public class HeadController {
                 resultWrite.appendText(String.valueOf(resultInput)));
     }
 
-    public class EventListener implements SerialPortEventListener {
-
-        public void serialEvent(SerialPortEvent event) {
-            if (event.isRXCHAR() && event.getEventValue() > 0) {
-                try {
-                    data = serialPort.readString(event.getEventValue());
-                    outputDataInTextField(data);
-                    Thread.sleep(100);
-                    fileWriter(data, FILE);
-                    logFileWriter(data, LOGFILE);
-                } catch (SerialPortException | IOException | InterruptedException ex) {
-                    System.out.println(ex);
-                }
-            }
-        }
-
-        public void outputDataInTextField(String data) {
-            Platform.runLater(() ->
-                    dataComPort.appendText(String.valueOf(data)));
-        }
-    }
-
-    private void fileWriter(String buffer, String path) throws IOException {
-        FileWriter wFile = new FileWriter(path, true);
-        wFile.write(buffer);
-        wFile.close();
-    }
-
-    private void logFileWriter(String buffer, String path) {
-        try {
-            FileWriter fw = new FileWriter(path, true);
-            PrintWriter out = new PrintWriter(fw);
-            DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            Calendar cal = Calendar.getInstance();
-            String time = dateF.format(cal.getTime());
-            out.print(time + ": ");
-            fw.write(buffer.toUpperCase() + "\n");
-            out.close();
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void calculatePID(double currentValue) {
-        double output = 0;
-
-        SimplyPID pid = new SimplyPID(0, 1.2, 0, 0.025);
-
-        System.out.printf("Time\tSet Point\tCurrent value\tOutput\tError\n");
-
-        for (int i = 0; i < 30; i++){
-            System.out.printf("%d\t%3.2f\t%3.2f\t%3.2f\t%3.2f\n", i, pid.getSetPoint(), currentValue, output, (pid.getSetPoint()-currentValue));
-            if (i == 15)
-                pid.setSetpoint(50);
-            // Compute the output (assuming 1 unit of time passed between each measurement)
-            output = pid.getOutput(1,currentValue);
-            currentValue += output*1.3 + (Math.random()-.5)*3;
-        }
-    }
-
-    private void loadStage() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/graphic.fxml"));
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.getIcons().add(new Image("/images/planets_Earth.jpg"));
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setResizable(false);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @FXML
     void initialize() {
         RequiredFieldValidator requiredInputValidator = new RequiredFieldValidator();
         requiredInputValidator.setMessage("Cannot be empty");
         validationkP();
+        validationkI();
+        validationkD();
         validationSetpoint();
         requestPort();
-        //calculatePID(Double.parseDouble(data)); //----------------
+        countPID();
         inputSetPoint.getValidators().add(requiredInputValidator);
         inputSetPoint.focusedProperty().addListener((o, oldVal, newVal) -> {
             if (!newVal) {
                 inputSetPoint.validate();
             }
+        });
+
+        clearGraph.setOnAction(clear -> {
+            lineChart.getData().clear();
+        });
+
+        copy.setOnAction(copy -> {
+            onCopy();
         });
 
         setPoint.setOnAction(action -> {
@@ -306,8 +275,8 @@ public class HeadController {
                 try {
                     resultWrite.setText("setpoint: ");
                     resultInputWrite(serialPort.writeString("set_point" + inputSetPoint.getText()));
-                    logFileWriter(inputSetPoint.getText(), LOGFILESET);
-                    fileWriter(inputSetPoint.getText(), FILESET);
+                    communicate.logFileWriter(inputSetPoint.getText(), LOGFILESET);
+                    communicate.fileWriter(inputSetPoint.getText(), FILESET);
                 } catch (SerialPortException | IOException e) {
                     e.printStackTrace();
                 }
@@ -326,7 +295,6 @@ public class HeadController {
                 }
             }
         });
-
 
         setKoeffI.setOnAction(action -> {
             if (kI.getText().isEmpty()) {
@@ -353,17 +321,17 @@ public class HeadController {
                 }
             }
         });
-        buildGraph.setOnAction(plot -> loadStage());
+        buildGraph.setOnAction(plot -> {
+            buildChart();
+        });
 
         openclose.setOnAction(event -> {
-
-            if(openclose.isSelected()){
+            if (openclose.isSelected()) {
                 initializeComPort();
                 openclose.setText("Open port");
                 openclose.setTooltip(new Tooltip("Click and the serial\n" + "port will be closed"));
-            }
-            else{
-                stop();
+            } else {
+                eventListener.stop();
                 openclose.setText("Close port");
                 openclose.setTooltip(new Tooltip("Click and the serial\n" + "port will be opened"));
             }

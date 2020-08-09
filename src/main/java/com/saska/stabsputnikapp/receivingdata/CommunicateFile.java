@@ -1,54 +1,73 @@
 package com.saska.stabsputnikapp.receivingdata;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class CommunicateFile {
-    public int getCount() {
-        int count = 0;
 
-        FileReader fr = null;
-        BufferedReader br = null;
-        PrintWriter writer = null;
+    public static final String FILE = "src/main/resources/txtfiles/SerialReceive.txt";
 
-        try {
-            File f = new File( "src/main/resources/txtfiles/SerialReceive.txt");
-            if (!f.exists()) {
-                f.createNewFile();
-                writer = new PrintWriter(new FileWriter(f));
-                writer.print(0);
-            }
-            if (writer != null) writer.close();
-
-            fr = new FileReader(f);
-            br = new BufferedReader(fr);
-            String initial = br.readLine();
-            System.out.println(initial);
-            count = Integer.parseInt(initial);
-        } catch (Exception e) {
-            if (writer != null) writer.close();
-        }
-
-        if (br != null) {
-            try {
-                br.close();
-            } catch (Exception e) {
-            }
-        }
-        return count;
+    public static Date removeTime(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return cal.getTime();
     }
 
-    public void save(int count) throws IOException {
-        FileWriter fw = null;
-        PrintWriter pw = null;
-        fw = new FileWriter( "src/main/resources/txtfiles/SerialReceive.txt");
-        pw = new PrintWriter(fw);
-        pw.print(count);
+    public StringBuilder fileReader() throws IOException {
+        FileReader rFile = new FileReader(FILE);
+        Scanner scan = new Scanner(rFile);
+        StringBuilder fullFile = new StringBuilder();
+        while (scan.hasNextInt()) {
+            fullFile.append(scan.nextInt());
+        }
+        rFile.close();
+        return fullFile;
+    }
 
-        if (pw != null) pw.close();
+    public String readFile() throws IOException {
+        return Files.lines(Paths.get(FILE)).reduce("", (a, b) -> a + "\n" + b).trim();
+    }
+
+    public List<Double> reader() throws FileNotFoundException {
+        File file = new File(FILE);
+        Scanner scanner = new Scanner(file);
+        List<Double> doublesInput = new ArrayList<>();
+        while (scanner.hasNext()) {
+            if (scanner.hasNextDouble()) {
+                doublesInput.add(scanner.nextDouble());
+            } else {
+                scanner.next();
+            }
+        }
+        return doublesInput;
+    }
+
+    public void fileWriter(String buffer, String path) throws IOException {
+        FileWriter wFile = new FileWriter(path, true);
+        wFile.write(buffer);
+        wFile.close();
+    }
+
+    public void logFileWriter(String buffer, String path) {
+        try {
+            FileWriter fw = new FileWriter(path, true);
+            PrintWriter out = new PrintWriter(fw);
+            DateFormat dateF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Calendar cal = Calendar.getInstance();
+            String time = dateF.format(cal.getTime());
+            out.print(time + ": ");
+            fw.write(buffer.toUpperCase() + "\n");
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
