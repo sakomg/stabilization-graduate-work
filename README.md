@@ -1,4 +1,4 @@
-<img src="https://img.freepik.com/free-vector/satellite-on-transparent_1308-49912.jpg?w=2000&t=st=1717331057~exp=1717331657~hmac=a83e5185a240f43e4c707e0f2e88bab678b5d013eaf4a2a8b1d571cd32c067e1" width = "100px" height = "100px" alt="satellite">
+<img src="https://cdn.britannica.com/51/128751-050-E61095C0/Intelsat-VI-1992.jpg" width = "100px" height = "100px" alt="satellite">
 
 # stabilitron
 Desktop JavaFX application. 
