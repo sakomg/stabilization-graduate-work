@@ -1,4 +1,4 @@
-<img src="https://epizodsspace.airbase.ru/bibl/n_i_j/1958/9/8-1.jpg" width = "100px" height = "100px" alt="satellite">
+<img src="https://www.vecteezy.com/vector-art/436704-sputnik-vector-icon" width = "100px" height = "100px" alt="satellite">
 
 # stabilitron
 Desktop JavaFX application. 
